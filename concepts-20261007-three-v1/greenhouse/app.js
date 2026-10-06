@@ -56,8 +56,13 @@
     if (key === 'transfer' && !values.transfer) return 'Выберите ответ о трансфере.';
     return '';
   }
-  form.addEventListener('submit', event => {
-    event.preventDefault();
+  form.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && event.target.matches('input,select')) {
+      event.preventDefault();
+      next.click();
+    }
+  });
+  next.addEventListener('click', () => {
     if (done) return;
     const key = activeSteps()[step];
     collect();
