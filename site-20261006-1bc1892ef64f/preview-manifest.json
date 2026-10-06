@@ -1,0 +1,7 @@
+{
+  "version": "site-20261006-1bc1892ef64f",
+  "source_worktree": "/opt/data/projects/webgency-owner-review",
+  "base_commit": "ff44411",
+  "changed_sha256": "1bc1892ef64fe4d9d79214d92b871373c144e0eb4854accf5a48239a9cf24d10",
+  "scope": "Full site synthetic static copy; no account/backend/RSVP/payment writes; approved landing visually unchanged; review screenshots sourced from qa paths."
+}

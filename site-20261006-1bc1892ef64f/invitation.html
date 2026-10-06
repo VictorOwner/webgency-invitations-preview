@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https://storage.yandexcloud.net; media-src 'self' data: blob: https://storage.yandexcloud.net; connect-src 'self'; frame-src 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#123f33">
+  <title>Приглашение на свадьбу</title>
+  <link rel="stylesheet" href="/webgency-invitations-preview/site-20261006-1bc1892ef64f/invitation.css?v=2">
+<link rel="stylesheet" href="/webgency-invitations-preview/site-20261006-1bc1892ef64f/cookie-consent.css?v=20260829-3"><link rel="icon" href="/webgency-invitations-preview/site-20261006-1bc1892ef64f/favicon.svg" type="image/svg+xml"><script src="/webgency-invitations-preview/site-20261006-1bc1892ef64f/preview-guard.js"></script></head>
+<body>
+  <main id="invitation" class="invitation" aria-live="polite">
+    <div class="invitation-loading"><i></i><p>Открываем приглашение…</p></div>
+  </main>
+
+  <dialog class="guest-dialog" id="rsvp-dialog">
+    <form method="dialog" class="dialog-shell" id="rsvp-form">
+      <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
+      <span class="section-kicker">ОТВЕТ ГОСТЯ</span>
+      <h2>Будете ли вы с нами?</h2>
+      <p>Сначала представьтесь. Дополнительные вопросы появятся только после ответа «Буду».</p>
+      <label><span>Имя и фамилия *</span><input name="name" autocomplete="name" required maxlength="120"></label>
+      <div class="field-pair">
+        <label><span>Мессенджер *</span><select name="messenger" required><option value="telegram">Telegram</option><option value="whatsapp">WhatsApp</option><option value="max">MAX</option></select></label>
+        <label><span data-contact-label>Контакт в Telegram *</span><input name="contact" required maxlength="200" autocomplete="off" placeholder="@username, t.me/… или номер"></label>
+      </div>
+      <fieldset class="attendance"><legend>Вы сможете прийти? *</legend><label><input type="radio" name="status" value="accepted" required><span>С радостью буду</span></label><label><input type="radio" name="status" value="pending"><span>Пока не знаю</span></label><label><input type="radio" name="status" value="declined"><span>К сожалению, не смогу</span></label></fieldset>
+      <div id="rsvp-extra" hidden></div>
+      <label class="legal-check"><input type="checkbox" name="personalDataAccepted" required><span>Я разрешаю обработать мой ответ для организации этого события и ознакомился(-ась) с <a href="/webgency-invitations-preview/site-20261006-1bc1892ef64f/guest-data-notice.html" target="_blank" rel="noopener">уведомлением о данных гостя</a>.</span></label>
+      <p class="form-error" id="rsvp-error" role="alert"></p>
+      <button class="primary-action" type="submit">Отправить ответ</button>
+    </form>
+  </dialog>
+
+  <dialog class="guest-dialog" id="gift-dialog">
+    <form method="dialog" class="dialog-shell" id="gift-form">
+      <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
+      <span class="section-kicker">БРОНЬ ПОДАРКА</span>
+      <h2 id="gift-dialog-title">Забронировать подарок</h2>
+      <p>Другие гости увидят, что подарок уже выбран, но не увидят ваше имя.</p>
+      <input type="hidden" name="giftId">
+      <label><span>Имя и фамилия *</span><input name="name" autocomplete="name" required maxlength="120"></label>
+      <div class="field-pair">
+        <label><span>Мессенджер *</span><select name="messenger" required><option value="telegram">Telegram</option><option value="whatsapp">WhatsApp</option><option value="max">MAX</option></select></label>
+        <label><span data-contact-label>Контакт в Telegram *</span><input name="contact" required maxlength="200" autocomplete="off" placeholder="@username, t.me/… или номер"></label>
+      </div>
+      <label class="legal-check"><input type="checkbox" name="personalDataAccepted" required><span>Я разрешаю обработать имя и контакт для бронирования подарка и ознакомился(-ась) с <a href="/webgency-invitations-preview/site-20261006-1bc1892ef64f/guest-data-notice.html" target="_blank" rel="noopener">уведомлением о данных гостя</a>.</span></label>
+      <p class="form-error" id="gift-error" role="alert"></p>
+      <button class="primary-action" type="submit">Подтвердить бронь</button>
+    </form>
+  </dialog>
+
+  <div class="guest-toast" id="guest-toast" role="status"></div>
+  <script src="/webgency-invitations-preview/site-20261006-1bc1892ef64f/invitation.js?v=2"></script>
+<script src="/webgency-invitations-preview/site-20261006-1bc1892ef64f/cookie-consent.js?v=20260829-3" defer></script></body>
+</html>

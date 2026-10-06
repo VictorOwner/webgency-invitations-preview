@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ru">
+<head><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https://storage.yandexcloud.net; media-src 'self' data: blob: https://storage.yandexcloud.net; connect-src 'self'; frame-src 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Создайте аккаунт «Пригласим их», чтобы выбрать шаблон, сохранить приглашение и продолжить в любое время.">
+  <title>Вход и регистрация — Пригласим их</title>
+  <style>
+    :root{--green:#0d3b2e;--green-2:#1a6b52;--gold:#a9813f;--gold-soft:#ead9b8;--cream:#f7f2e8;--paper:#fbfbf8;--text:#183b31;--muted:#66736e;--line:#dfe5e1;--danger:#a83e34}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:Arial,"Helvetica Neue",sans-serif;color:var(--text);background:var(--paper)}
+    body{min-height:100vh}
+    button,input{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    .auth-shell{min-height:100vh;display:grid;grid-template-columns:minmax(430px,46%) 1fr}
+    .brand-panel{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:100vh;padding:34px clamp(34px,5vw,76px) 46px;color:#fff;background:linear-gradient(145deg,#082d23 0%,#0d3b2e 48%,#175b47 100%)}
+    .brand-panel::before{content:"";position:absolute;width:620px;height:620px;left:-280px;bottom:-300px;border:1px solid rgba(234,217,155,.34);border-radius:50%;box-shadow:0 0 0 56px rgba(234,217,155,.04),0 0 0 112px rgba(234,217,155,.035)}
+    .brand-panel::after{content:"";position:absolute;width:350px;height:520px;right:-160px;top:13%;border:1px solid rgba(234,217,155,.25);border-radius:180px 180px 24px 24px;transform:rotate(10deg)}
+    .brand-top,.brand-copy,.brand-note{position:relative;z-index:1}
+    .brand-top{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{display:inline-flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+    .logo-mark{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(234,217,155,.75);border-radius:50%;font:700 17px Georgia,serif;letter-spacing:-2px;color:var(--gold-soft)}
+    .logo-name{font:700 20px Georgia,serif;letter-spacing:.02em}
+    .back-link{color:rgba(255,255,255,.76);font-size:14px;text-decoration:none;transition:color .2s}
+    .back-link:hover{color:#fff}
+    .eyebrow{margin:0 0 18px;color:var(--gold-soft);font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+    .brand-copy{max-width:560px;margin:70px 0}
+    .brand-copy h1{max-width:530px;margin:0 0 24px;font:700 clamp(38px,4.5vw,66px)/1.04 Georgia,"Times New Roman",serif;letter-spacing:-.035em}
+    .brand-copy>p:not(.eyebrow){max-width:510px;margin:0;color:rgba(255,255,255,.76);font-size:18px;line-height:1.65}
+    .benefits{display:grid;gap:18px;margin:38px 0 0;padding:0;list-style:none}
+    .benefits li{display:flex;align-items:flex-start;gap:12px;color:rgba(255,255,255,.9);font-size:15px;line-height:1.45}
+    .check{display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;margin-top:-1px;border-radius:50%;background:rgba(234,217,155,.16);color:var(--gold-soft);font-size:13px}
+    .brand-note{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.64);font-size:13px}
+    .brand-note::before{content:"";width:30px;height:1px;background:var(--gold-soft)}
+    .form-panel{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:40px clamp(28px,6vw,96px)}
+    .auth-card{width:100%;max-width:480px}
+    .selected-template{display:none;align-items:center;gap:14px;margin:0 0 22px;padding:13px 15px;border:1px solid #ddcfaf;border-radius:16px;background:linear-gradient(135deg,#fffdf8,#f7f0e2)}
+    .selected-template.is-visible{display:flex}
+    .selected-template-mark{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:13px;color:#ead9b8;background:linear-gradient(145deg,#0d3b2e,#1a6b52);font:700 18px Georgia,serif}
+    .selected-template-copy{display:grid;gap:3px;min-width:0}
+    .selected-template-copy small{color:#795b2e;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .selected-template-copy b{color:var(--green);font:700 17px/1.12 Georgia,serif}
+    .selected-template a{margin-left:auto;color:var(--green-2);font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap}
+    .mobile-logo{display:none;margin-bottom:36px;color:var(--green)}
+    .tabs{display:grid;grid-template-columns:1fr 1fr;margin-bottom:38px;padding:5px;border:1px solid var(--line);border-radius:999px;background:#f1f3f1}
+    .tabs[hidden]{display:none}
+    .tab{height:46px;border:0;border-radius:999px;color:var(--muted);background:transparent;font-size:15px;font-weight:700;cursor:pointer;transition:.2s}
+    .tab[aria-selected="true"]{color:#fff;background:var(--green);box-shadow:0 5px 15px rgba(13,59,46,.18)}
+    .tab:focus-visible,.text-link:focus-visible,.submit:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .form-heading{margin-bottom:30px}
+    .form-heading h2{margin:0 0 10px;font:700 clamp(31px,3vw,42px)/1.1 Georgia,"Times New Roman",serif;letter-spacing:-.025em;color:var(--green)}
+    .form-heading p{margin:0;color:var(--muted);font-size:16px;line-height:1.55}
+    .auth-form{display:grid;gap:20px}
+    .field{display:grid;gap:8px}
+    .field label{font-size:14px;font-weight:700;color:#29483f}
+    .input-wrap{position:relative}
+    .field input{width:100%;height:56px;padding:0 48px 0 17px;border:1px solid var(--line);border-radius:14px;outline:none;color:var(--text);background:#fff;transition:border-color .2s,box-shadow .2s}
+    .field input::placeholder{color:#66736e}
+    .field input:focus{border-color:var(--green-2);box-shadow:0 0 0 4px rgba(26,107,82,.1)}
+    .field.has-error input{border-color:var(--danger);box-shadow:0 0 0 3px rgba(168,62,52,.08)}
+    .error{display:none;margin:0;color:var(--danger);font-size:13px;line-height:1.35}
+    .field.has-error .error{display:block}
+    .password-toggle{position:absolute;right:11px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:50%;color:var(--muted);background:transparent;cursor:pointer}
+    .password-toggle:hover{background:#f1f4f2;color:var(--green)}
+    .row-between{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:-4px}
+    .checkbox{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:13px;line-height:1.45;cursor:pointer}
+    .checkbox input{flex:0 0 17px;width:17px;height:17px;margin:1px 0 0;accent-color:var(--green)}
+    .text-link{border:0;padding:0;color:var(--green-2);background:none;font-weight:700;text-decoration:none;cursor:pointer}
+    .text-link:hover{text-decoration:underline}
+    .submit{position:relative;height:58px;margin-top:3px;border:0;border-radius:999px;color:#fff;background:linear-gradient(105deg,var(--green-2),var(--green));font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 12px 24px rgba(13,59,46,.18);transition:transform .2s,box-shadow .2s}
+    .submit:hover{transform:translateY(-1px);box-shadow:0 15px 29px rgba(13,59,46,.23)}
+    .submit:disabled{cursor:wait;opacity:.7;transform:none}
+    .terms{margin:0;color:#56635e;font-size:12px;line-height:1.55;text-align:center}
+    .terms a{color:inherit}
+    .auth-message{display:none;padding:14px 16px;border-radius:12px;color:var(--green);background:#e8f1ed;font-size:14px;line-height:1.45}
+    .auth-message.is-visible{display:block}
+    .auth-message.is-error{color:var(--danger);background:#faecea}
+    .consent-error{display:none;margin:-8px 0 0;color:var(--danger);font-size:13px;line-height:1.4}
+    .auth-form.has-consent-error .consent-error{display:block}
+    .resend-verification{display:none;justify-self:start;margin-top:-8px;font-size:13px}
+    .resend-verification.is-visible{display:inline-flex}
+    .resend-verification:not(.is-visible){display:none}
+    .auth-form[hidden]{display:none}
+    .reset-success{display:none;text-align:center}
+    .reset-entry{display:grid;gap:20px}
+    .reset-entry[hidden]{display:none}
+    .reset-link-error{display:none;gap:20px;text-align:center}
+    .reset-link-error.is-visible{display:grid}
+    .reset-link-error h2{margin:0;font:700 34px/1.15 Georgia,serif;color:var(--green)}
+    .reset-link-error h2:focus{outline:2px solid var(--gold);outline-offset:5px;border-radius:6px}
+    .reset-link-error p{margin:0;color:var(--muted);line-height:1.55}
+    .reset-link-error .submit{display:grid;place-items:center;text-decoration:none}
+    .reset-success.is-visible{display:grid;gap:18px;justify-items:center}
+    .reset-success-mark{display:grid;place-items:center;width:72px;height:72px;border-radius:50%;color:#fff;background:linear-gradient(145deg,var(--green-2),var(--green));font:700 30px Georgia,serif;box-shadow:0 14px 30px rgba(13,59,46,.18)}
+    .reset-success h2{margin:2px 0 0;font:700 38px/1.08 Georgia,"Times New Roman",serif;color:var(--green)}
+    .reset-success p{max-width:390px;margin:0;color:var(--muted);font-size:16px;line-height:1.55}
+    .reset-success .submit{display:grid;place-items:center;width:100%;text-decoration:none}
+    .reset-recovery{display:none;text-align:center}
+    .reset-recovery.is-visible{display:block}
+    body.reset-mode .auth-shell{grid-template-columns:1fr}
+    body.reset-mode .brand-panel{display:none}
+    body.reset-mode .form-panel{padding-block:48px}
+    body.reset-mode .auth-card{max-width:480px}
+    body.reset-mode .mobile-logo{display:flex}
+    .password-strength{display:flex;gap:5px;margin-top:2px}
+    .password-strength span{height:3px;flex:1;border-radius:10px;background:#e4e8e5;transition:background .2s}
+    .password-strength[data-level="1"] span:nth-child(-n+1){background:#b5564d}
+    .password-strength[data-level="2"] span:nth-child(-n+2){background:#c08a31}
+    .password-strength[data-level="3"] span:nth-child(-n+3){background:#5b956c}
+    .password-strength[data-level="4"] span{background:var(--green-2)}
+    @media(max-width:900px){
+      .auth-shell{grid-template-columns:1fr}.brand-panel{display:none}.form-panel{min-height:100vh;padding:28px 22px 50px}.mobile-logo{display:flex}.auth-card{max-width:520px}.tabs{margin-bottom:32px}
+    }
+    @media(max-width:480px){
+      .form-panel{align-items:flex-start;padding:22px max(16px,env(safe-area-inset-right)) max(38px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}.mobile-logo{margin-bottom:28px}.logo-mark{width:42px;height:42px}.form-heading{margin-bottom:25px}.form-heading h2{font-size:31px}.field input{height:54px;font-size:16px}.row-between{align-items:flex-start}.submit{height:56px}
+      .password-toggle{right:7px;width:44px;height:44px}
+      button.text-link:not(.resend-verification){display:inline-flex;min-width:44px;min-height:44px;align-items:center;justify-content:center;padding:10px 2px;margin:-10px -2px}
+      .checkbox a.text-link{display:inline;padding:5px 0;margin:-5px 0;line-height:2.35}
+    }
+  </style>
+<link rel="stylesheet" href="/webgency-invitations-preview/site-20261006-1bc1892ef64f/cookie-consent.css?v=20260829-3"><link rel="icon" href="/webgency-invitations-preview/site-20261006-1bc1892ef64f/favicon.svg" type="image/svg+xml"><script src="/webgency-invitations-preview/site-20261006-1bc1892ef64f/preview-guard.js"></script></head>
+<body>
+  <main class="auth-shell">
+    <section class="brand-panel" aria-label="Преимущества аккаунта">
+      <div class="brand-top">
+        <a class="logo" href="index.html" aria-label="Пригласим их — на главную"><span class="logo-mark">ПИ</span><span class="logo-name">Пригласим их</span></a>
+        <a class="back-link" href="index.html#rec2074093753">← К шаблонам</a>
+      </div>
+      <div class="brand-copy">
+        <p class="eyebrow">Ваше приглашение начинается здесь</p>
+        <h1>Создавайте спокойно. Ничего не потеряется.</h1>
+        <p>Аккаунт сохранит черновик и позволит продолжить с любого устройства — сегодня или позже.</p>
+        <ul class="benefits">
+          <li><span class="check">✓</span><span>Заполнение занимает около 10–20 минут</span></li>
+          <li><span class="check">✓</span><span>Все изменения сохраняются в личном кабинете</span></li>
+          <li><span class="check">✓</span><span>Публикация только после вашей проверки</span></li>
+        </ul>
+      </div>
+      <div class="brand-note">Одна цена · Безлимитные правки · Любое количество гостей</div>
+    </section>
+
+    <section class="form-panel">
+      <div class="auth-card">
+        <a class="logo mobile-logo" href="index.html" aria-label="Пригласим их — на главную"><span class="logo-mark">ПИ</span><span class="logo-name">Пригласим их</span></a>
+        <aside class="selected-template" id="selected-template" aria-live="polite">
+          <span class="selected-template-mark" aria-hidden="true">✓</span>
+          <span class="selected-template-copy"><small>Вы выбрали приглашение</small><b id="selected-template-name"></b></span>
+          <a href="index.html#rec2074093753">Изменить</a>
+        </aside>
+        <div class="tabs" role="tablist" aria-label="Вход или регистрация">
+          <button class="tab" id="register-tab" type="button" role="tab" aria-selected="true" aria-controls="register-form" data-mode="register">Регистрация</button>
+          <button class="tab" id="login-tab" type="button" role="tab" aria-selected="false" aria-controls="login-form" data-mode="login">Вход</button>
+        </div>
+
+        <form class="auth-form" id="register-form" role="tabpanel" aria-labelledby="register-tab" novalidate>
+          <div class="form-heading"><h2>Создайте аккаунт</h2><p>Укажите почту, к которой есть доступ. После регистрации откройте письмо и подтвердите адрес, чтобы продолжить в кабинете.</p></div>
+          <div class="field"><label for="register-email">Электронная почта</label><div class="input-wrap"><input id="register-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="register-email-error" required></div><p class="error" id="register-email-error">Введите корректный адрес электронной почты.</p></div>
+          <div class="field"><label for="register-password">Пароль</label><div class="input-wrap"><input id="register-password" name="password" type="password" autocomplete="new-password" placeholder="Минимум 8 символов" minlength="8" aria-describedby="register-password-error" required><button class="password-toggle" type="button" aria-label="Показать пароль" aria-pressed="false">◉</button></div><div class="password-strength" data-level="0" aria-hidden="true"><span></span><span></span><span></span><span></span></div><p class="error" id="register-password-error">Пароль должен содержать минимум 8 символов.</p></div>
+          <label class="checkbox"><input name="personalData" type="checkbox" aria-describedby="register-consent-error" required><span>Даю <a class="text-link" href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и подтверждаю, что ознакомился с <a class="text-link" href="privacypolicy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</span></label>
+          <label class="checkbox"><input name="terms" type="checkbox" aria-describedby="register-consent-error" required><span>Принимаю <a class="text-link" href="termsconditions.html" target="_blank" rel="noopener">условия использования и публичную оферту</a>.</span></label>
+          <p class="consent-error" id="register-consent-error" role="alert">Чтобы зарегистрироваться, примите согласие на обработку данных и условия использования.</p>
+          <label class="checkbox"><input name="marketing" type="checkbox"><span>Согласен получать рекламные письма на указанный email на условиях <a class="text-link" href="marketing-consent.html" target="_blank" rel="noopener">отдельного согласия</a>. Необязательно; можно отозвать в любой момент.</span></label>
+          <div class="auth-message" role="status" aria-live="polite"></div>
+          <button class="text-link resend-verification" type="button">Не пришло письмо? Отправить ещё раз</button>
+          <button class="submit" type="submit">Создать аккаунт и получить письмо</button>
+          <p class="terms">Уже есть аккаунт? <button class="text-link" type="button" data-switch="login">Войти</button></p>
+        </form>
+
+        <form class="auth-form" id="login-form" role="tabpanel" aria-labelledby="login-tab" hidden novalidate>
+          <div class="form-heading"><h2>С возвращением</h2><p>Войдите, чтобы продолжить работу над приглашением.</p></div>
+          <div class="field"><label for="login-email">Электронная почта</label><div class="input-wrap"><input id="login-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="login-email-error" required></div><p class="error" id="login-email-error">Введите корректный адрес электронной почты.</p></div>
+          <div class="field"><label for="login-password">Пароль</label><div class="input-wrap"><input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Ваш пароль" aria-describedby="login-password-error" required><button class="password-toggle" type="button" aria-label="Показать пароль" aria-pressed="false">◉</button></div><p class="error" id="login-password-error">Введите пароль.</p></div>
+          <div class="row-between"><span></span><button class="text-link" type="button" id="forgot-password">Забыли пароль?</button></div>
+          <div class="auth-message" role="status" aria-live="polite"></div>
+          <button class="text-link resend-verification" type="button">Отправить письмо подтверждения ещё раз</button>
+          <button class="submit" type="submit">Войти в личный кабинет</button>
+          <p class="terms">Нет аккаунта? <button class="text-link" type="button" data-switch="register">Зарегистрироваться</button></p>
+        </form>
+
+        <form class="auth-form" id="reset-form" role="tabpanel" hidden novalidate>
+          <div class="reset-entry">
+            <div class="form-heading"><h2>Задайте новый пароль</h2><p>Введите новый пароль дважды, чтобы исключить опечатку.</p></div>
+            <input name="token" type="hidden">
+            <div class="field"><label for="reset-password">Новый пароль</label><div class="input-wrap"><input id="reset-password" name="password" type="password" autocomplete="new-password" placeholder="Минимум 8 символов" minlength="8" maxlength="128" aria-describedby="reset-password-error" required><button class="password-toggle" type="button" aria-label="Показать новый пароль" aria-pressed="false">◉</button></div><p class="error" id="reset-password-error">Пароль должен содержать минимум 8 символов.</p></div>
+            <div class="field"><label for="reset-password-confirm">Повторите новый пароль</label><div class="input-wrap"><input id="reset-password-confirm" name="passwordConfirm" type="password" autocomplete="new-password" placeholder="Введите пароль ещё раз" minlength="8" maxlength="128" aria-describedby="reset-password-confirm-error" required><button class="password-toggle" type="button" aria-label="Показать повтор пароля" aria-pressed="false">◉</button></div><p class="error" id="reset-password-confirm-error">Пароли не совпадают.</p></div>
+            <div class="auth-message" role="status" aria-live="polite"></div>
+            <button class="submit" type="submit">Сохранить новый пароль</button>
+            <p class="reset-recovery terms"><button class="text-link" type="button" data-switch="login">Получить новую ссылку</button></p>
+          </div>
+          <section class="reset-link-error" aria-live="polite"><h2 tabindex="-1">Ссылка не работает</h2><p>Ссылка для смены пароля отсутствует, истекла или уже использована. Вернитесь к входу, укажите адрес электронной почты и нажмите «Забыли пароль?», чтобы получить новую ссылку.</p><button class="submit" type="button" id="reset-request-link">Перейти к запросу новой ссылки</button></section>
+          <section class="reset-success" aria-live="polite">
+            <span class="reset-success-mark" aria-hidden="true">✓</span>
+            <h2>Готово</h2>
+            <p>Новый пароль сохранён. Все ранее открытые сессии завершены — теперь войдите с новым паролем.</p>
+            <button class="submit" type="button" id="reset-login">Войти в аккаунт</button>
+          </section>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function(){
+      var tabs=[].slice.call(document.querySelectorAll('.tab'));
+      var forms={register:document.getElementById('register-form'),login:document.getElementById('login-form'),reset:document.getElementById('reset-form')};
+      function setMode(mode,replace,keepTabFocus){
+        if(!forms[mode])mode='register';
+        document.body.classList.toggle('reset-mode',mode==='reset');
+        document.title=mode==='reset'?'Новый пароль — Пригласим их':'Вход и регистрация — Пригласим их';
+        document.querySelector('.tabs').hidden=mode==='reset';
+        tabs.forEach(function(tab){var active=tab.dataset.mode===mode;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1});
+        Object.keys(forms).forEach(function(key){forms[key].hidden=key!==mode;clearFormState(forms[key])});
+        var url=new URL(location.href);url.searchParams.set('mode',mode);history[replace?'replaceState':'pushState']({},'',url);
+        if(!keepTabFocus)setTimeout(function(){var input=forms[mode].querySelector('input:not([type="hidden"])');if(input&&!forms[mode].querySelector('.reset-entry[hidden]'))input.focus()},40);
+      }
+      function clearFormState(form){form.querySelectorAll('.field').forEach(function(x){x.classList.remove('has-error')});form.classList.remove('has-consent-error');form.querySelectorAll('input').forEach(function(input){input.removeAttribute('aria-invalid')});var m=form.querySelector('.auth-message');m.classList.remove('is-visible','is-error');m.setAttribute('role','status');m.textContent='';var resend=form.querySelector('.resend-verification');if(resend)resend.classList.remove('is-visible')}
+      function focusFirstInvalid(form){var first=form.querySelector('[aria-invalid="true"]');if(first)first.focus()}
+      function validEmail(value){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)}
+      function validate(form){var ok=true,consentOk=true;form.querySelectorAll('.field').forEach(function(field){var input=field.querySelector('input');var valid=input.type==='email'?validEmail(input.value.trim()):input.value.length>=Number(input.minLength>0?input.minLength:1);field.classList.toggle('has-error',!valid);input.setAttribute('aria-invalid',String(!valid));if(!valid)ok=false});if(form===forms.reset){var password=form.password,passwordConfirm=form.passwordConfirm;var match=password.value===passwordConfirm.value&&passwordConfirm.value.length>=8;passwordConfirm.closest('.field').classList.toggle('has-error',!match);passwordConfirm.setAttribute('aria-invalid',String(!match));if(!match)ok=false}form.querySelectorAll('input[required][type="checkbox"]').forEach(function(input){input.setAttribute('aria-invalid',String(!input.checked));if(!input.checked){consentOk=false;if(ok)input.focus();ok=false}});form.classList.toggle('has-consent-error',!consentOk);return ok}
+      function showMessage(form,text,error){var message=form.querySelector('.auth-message');message.textContent=text;message.classList.toggle('is-error',!!error);message.setAttribute('role',error?'alert':'status');message.classList.add('is-visible')}
+      async function api(path,body){var response=await fetch(path,{method:'POST',headers:{'content-type':'application/json'},credentials:'same-origin',body:JSON.stringify(body)});var data=await response.json().catch(function(){return {error:'Сервер вернул некорректный ответ.'}});if(!response.ok)throw new Error(data.error||'Не удалось выполнить запрос.');return data}
+      tabs.forEach(function(tab){tab.addEventListener('click',function(){setMode(tab.dataset.mode)});tab.addEventListener('keydown',function(event){var index=tabs.indexOf(tab),next=event.key==='ArrowRight'?(index+1)%tabs.length:event.key==='ArrowLeft'?(index+tabs.length-1)%tabs.length:event.key==='Home'?0:event.key==='End'?tabs.length-1:-1;if(next<0)return;event.preventDefault();setMode(tabs[next].dataset.mode,false,true);tabs[next].focus()})});
+      document.querySelectorAll('[data-switch]').forEach(function(btn){btn.addEventListener('click',function(){setMode(btn.dataset.switch)})});
+      document.querySelectorAll('.password-toggle').forEach(function(btn){btn.addEventListener('click',function(){var input=btn.parentElement.querySelector('input');var show=input.type==='password';input.type=show?'text':'password';btn.setAttribute('aria-pressed',String(show));btn.setAttribute('aria-label',show?'Скрыть пароль':'Показать пароль')})});
+      var regPassword=document.getElementById('register-password');regPassword.addEventListener('input',function(){var v=regPassword.value;var level=0;if(v.length>=8)level++;if(/[A-ZА-Я]/.test(v)&&/[a-zа-я]/.test(v))level++;if(/\d/.test(v))level++;if(/[^A-Za-zА-Яа-я0-9]/.test(v))level++;document.querySelector('.password-strength').dataset.level=level});
+      forms.register.addEventListener('submit',async function(event){event.preventDefault();var form=forms.register;clearFormState(form);if(!validate(form)){focusFirstInvalid(form);return}var button=form.querySelector('.submit');button.disabled=true;button.textContent='Отправляем письмо…';try{var data=await api('/api/auth/register',{email:form.email.value,password:form.password.value,personalDataAccepted:form.personalData.checked,termsAccepted:form.terms.checked,marketingAccepted:form.marketing.checked,theme:selectedTheme});showMessage(form,'Письмо отправлено на '+form.email.value.trim()+'. Откройте его и нажмите «Подтвердить аккаунт»: после этого вы попадёте в кабинет. Если письма нет, проверьте папку «Спам» или отправьте его повторно.');form.querySelector('.resend-verification').classList.add('is-visible');if(data.devVerificationUrl){var link=document.createElement('a');link.href=data.devVerificationUrl;link.textContent=' Открыть ссылку подтверждения';link.style.color='inherit';form.querySelector('.auth-message').appendChild(link)}}catch(error){showMessage(form,error.message,true)}finally{button.disabled=false;button.textContent='Создать аккаунт и получить письмо'}});
+      forms.login.addEventListener('submit',async function(event){event.preventDefault();var form=forms.login;clearFormState(form);if(!validate(form)){focusFirstInvalid(form);return}var button=form.querySelector('.submit');button.disabled=true;button.textContent='Входим…';try{var data=await api('/api/auth/login',{email:form.email.value,password:form.password.value,theme:selectedTheme});location.href=data.redirect||'/webgency-invitations-preview/site-20261006-1bc1892ef64f/account.html'}catch(error){showMessage(form,error.message,true);if(error.message==='Сначала подтвердите email.')form.querySelector('.resend-verification').classList.add('is-visible')}finally{button.disabled=false;button.textContent='Войти в личный кабинет'}});
+      function showResetLinkError(){var form=forms.reset;form.querySelector('.reset-entry').hidden=true;form.querySelector('.reset-link-error').classList.add('is-visible');setTimeout(function(){form.querySelector('.reset-link-error h2').focus()},60)}
+      function showResetComplete(email){forms.login.email.value=email||'';forms.reset.reset();forms.reset.querySelector('.reset-entry').hidden=true;forms.reset.querySelector('.reset-success').classList.add('is-visible');var url=new URL(location.href);url.searchParams.delete('token');url.searchParams.set('mode','reset');url.searchParams.set('done','1');history.replaceState({},'',url)}
+      forms.reset.addEventListener('submit',async function(event){event.preventDefault();var form=forms.reset;clearFormState(form);if(!validate(form)){focusFirstInvalid(form);return}var button=form.querySelector('.reset-entry .submit');button.disabled=true;button.textContent='Сохраняем…';try{var data=await api('/api/auth/reset-password',{token:form.token.value,password:form.password.value});button.textContent='Готово';location.replace(data.redirect||'/webgency-invitations-preview/site-20261006-1bc1892ef64f/account.html?passwordChanged=1')}catch(error){showMessage(form,error.message,true);if(/недействительна|использована|истекла|просрочена/i.test(error.message))showResetLinkError()}finally{button.disabled=false;if(button.textContent!=='Готово')button.textContent='Сохранить новый пароль'}});
+      document.getElementById('reset-request-link').addEventListener('click',function(){setMode('login');setTimeout(function(){forms.login.email.focus()},70)});
+      document.getElementById('reset-login').addEventListener('click',function(){setMode('login');setTimeout(function(){(forms.login.email.value?forms.login.password:forms.login.email).focus()},70)});
+      document.getElementById('forgot-password').addEventListener('click',async function(){var form=forms.login;clearFormState(form);var email=form.email.value.trim();if(!validEmail(email)){form.email.closest('.field').classList.add('has-error');form.email.setAttribute('aria-invalid','true');form.email.focus();return}try{var data=await api('/api/auth/forgot-password',{email:email});showMessage(form,data.message)}catch(error){showMessage(form,error.message,true)}});
+      document.querySelectorAll('.resend-verification').forEach(function(button){button.addEventListener('click',async function(){var form=button.closest('form'),email=form.email.value.trim();if(!validEmail(email)){form.email.closest('.field').classList.add('has-error');form.email.setAttribute('aria-invalid','true');form.email.focus();return}var originalText=button.textContent;button.disabled=true;button.textContent='Отправляем…';try{var data=await api('/api/auth/resend-verification',{email:email,theme:selectedTheme});showMessage(form,data.message);button.classList.add('is-visible')}catch(error){showMessage(form,error.message,true)}finally{button.disabled=false;button.textContent=originalText}})});
+      var params=new URL(location.href).searchParams;
+      var templateNames={sacred:'Священный сад',velvet:'Бархатный вечер',silk:'Воздушный шёлк',moon:'Лунный сад',estate:'Русская усадьба',editorial:'Современная клятва'};
+      var selectedTheme=params.get('theme');
+      if(templateNames[selectedTheme]){document.getElementById('selected-template-name').textContent=templateNames[selectedTheme];document.getElementById('selected-template').classList.add('is-visible')}
+      var initialMode=params.get('mode')||'register';if(initialMode==='reset'){forms.reset.token.value=params.get('token')||''}setMode(initialMode,true);if(initialMode==='reset'&&params.get('done')==='1')showResetComplete('');if(initialMode==='reset'&&!forms.reset.token.value&&params.get('done')!=='1')showResetLinkError();if(params.get('verified')==='invalid')showMessage(forms.register,'Ссылка подтверждения недействительна или уже истекла. Введите email и запросите новое письмо.',true);if(params.get('expired')==='1')showMessage(forms.login,'Сессия истекла. Войдите снова.',true);
+    })();
+  </script>
+<script src="/webgency-invitations-preview/site-20261006-1bc1892ef64f/cookie-consent.js?v=20260829-3" defer></script></body>
+</html>
