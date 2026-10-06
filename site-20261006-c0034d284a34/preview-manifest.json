@@ -1,0 +1,7 @@
+{
+  "version": "site-20261006-c0034d284a34",
+  "source": "candidate/night-integrated",
+  "base_commit": "ff44411",
+  "changed_sha256": "c0034d284a3490758578b31aa4ddc9f7d5b86186e546b1386ef791ed8e7ed951",
+  "scope": "Full production static pages, actual guest renderer with synthetic fixture; backend writes/auth/payment disabled."
+}

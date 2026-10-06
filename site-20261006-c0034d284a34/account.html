@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="ru" data-account-ready="false">
+<head><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https://storage.yandexcloud.net; media-src 'self' data: blob: https://storage.yandexcloud.net; connect-src 'self'; frame-src 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Личный кабинет — цифровые приглашения</title>
+  <link rel="stylesheet" href="account.css?v=58">
+  <link rel="stylesheet" href="account-wizard.css?v=48">
+  <script src="account.js?v=111" defer></script>
+<link rel="stylesheet" href="/webgency-invitations-preview/site-20261006-c0034d284a34/cookie-consent.css?v=20260829-3"><link rel="icon" href="/webgency-invitations-preview/site-20261006-c0034d284a34/favicon.svg" type="image/svg+xml"><script src="/webgency-invitations-preview/site-20261006-c0034d284a34/preview-guard.js"></script></head>
+<body>
+<div class="account-boot" id="account-boot" role="status" aria-live="polite">
+  <span aria-hidden="true"></span>
+  <b>Загружаем личный кабинет…</b>
+</div>
+<div class="cabinet">
+  <aside class="side-nav">
+    <div class="side-account"><span>П</span><div><b>Личный кабинет</b><small>polina@example.ru</small></div></div>
+    <nav aria-label="Основная навигация">
+      <button type="button" data-screen="projects"><i>◇</i><span>Мои приглашения</span></button>
+      <button type="button" id="nav-templates"><i>▦</i><span>Все шаблоны</span></button>
+      <button type="button" class="is-active" data-screen="editor"><i>✎</i><span>Редактор</span></button>
+      <button type="button" data-screen="guests"><i>♙</i><span>Гости и ответы</span></button>
+      <button type="button" data-screen="profile"><i>○</i><span>Профиль</span></button>
+    </nav>
+    <div class="side-bottom">
+      <button type="button" class="side-logout" data-logout><span>Выйти</span></button>
+    </div>
+  </aside>
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <header class="topbar">
+    <div class="topbar-left">
+      <button type="button" class="icon-button mobile-menu" id="mobile-menu" aria-label="Открыть меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="project-title"><strong id="project-title">Роман и Полина</strong><span id="save-status"><i></i>Все изменения сохранены</span></div>
+    </div>
+    <div class="topbar-actions">
+      <div class="notifications-wrap"><button type="button" class="notification-button" id="notification-button" aria-label="Уведомления"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span id="notification-count">2</span></button><div class="notifications-panel" id="notifications-panel"><div><b>Уведомления</b><button type="button" id="read-notifications">Прочитать все</button></div><article><i></i><p><b>Черновик сохранён</b><small>Можно продолжить с любого устройства после входа в аккаунт</small></p></article><article><i></i><p><b>Заполните приглашение</b><small>Осталось проверить данные и опубликовать ссылку</small></p></article></div></div>
+      <button type="button" class="avatar" data-screen="profile" aria-label="Профиль">П</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="screen editor-screen is-active" data-screen-panel="editor">
+      <aside class="preview-pane">
+        <div class="preview-toolbar">
+          <div><span class="eyebrow">ЖИВОЙ ПРЕДПРОСМОТР</span><p>Все изменения сразу видны слева</p></div>
+          <div class="device-toggle"><button type="button" class="is-active" aria-label="Телефон">▯</button><button type="button" aria-label="Широкий экран">▭</button></div>
+        </div>
+        <div class="phone-stage">
+          <div class="phone" id="phone-preview">
+            <div class="phone-island"></div>
+            <div class="invitation-preview" id="invitation-preview">
+              <section class="preview-section preview-cover" data-preview-section="style">
+                <div class="preview-monogram" aria-hidden="true"><span id="preview-initial-one">Р</span><i>•</i><span id="preview-initial-two">П</span></div>
+                <p class="preview-kicker">ПРИГЛАШЕНИЕ НА СВАДЬБУ</p>
+                <h1 data-preview-section="names"><span id="preview-name-one">Роман</span><small>и</small><span id="preview-name-two">Полина</span></h1>
+                <div class="preview-line"></div>
+                <p class="preview-message" id="preview-message" data-preview-section="message">Будем счастливы разделить с вами этот особенный день</p>
+                <div class="preview-date" data-preview-section="date">
+                  <span class="preview-date-line"><strong id="preview-day">14</strong><b id="preview-month">СЕНТЯБРЯ</b><em id="preview-year">2026</em></span>
+                  <small>НАЧАЛО В <span id="preview-time">16:00</span></small>
+                </div>
+                <div class="preview-scroll-cue" aria-hidden="true"><span>ЛИСТАЙТЕ НИЖЕ</span><i>⌄</i></div>
+              </section>
+              <section class="preview-section preview-auto-countdown" data-preview-section="countdown">
+                <small>ДО ТОРЖЕСТВА ОСТАЛОСЬ</small>
+                <div class="preview-countdown"><span><b id="preview-countdown-days">—</b><em>дней</em></span><span><b id="preview-countdown-hours">00</b><em>часов</em></span><span><b id="preview-countdown-minutes">00</b><em>минут</em></span><span><b id="preview-countdown-seconds">00</b><em>секунд</em></span></div>
+              </section>
+              <section class="preview-section preview-location" data-preview-section="place">
+                <small>ЛОКАЦИЯ</small>
+                <p class="preview-location-intro">Наш праздник пройдёт на площадке:</p>
+                <h2 id="preview-venue">Усадьба Лесная</h2>
+                <p id="preview-address">Московская область</p>
+                <div class="preview-location-photo" id="preview-location-photo">ФОТО ПЛОЩАДКИ</div>
+                <p class="preview-location-note" id="preview-location-note">Ниже вы найдёте карту — она поможет быстро найти место торжества и добраться вовремя.</p>
+                <a id="preview-location-map" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">ОТКРЫТЬ КАРТУ</a>
+              </section>
+              <section class="preview-section preview-schedule" data-preview-section="schedule">
+                <small>ПРОГРАММА ДНЯ</small>
+                <div id="preview-schedule-list"></div>
+              </section>
+              <section class="preview-section preview-feature preview-story" data-preview-section="story" data-rich-preview="story"><small>НАША ИСТОРИЯ</small><div class="preview-story-photo" id="preview-story-photo"><span>ФОТО ВАШЕЙ ПАРЫ</span></div><div class="preview-story-copy"><span class="preview-feature-icon">♡</span><p id="preview-story-text">Расскажите гостям, как началась ваша история</p></div></section>
+              <section class="preview-section preview-feature preview-dress-section" data-preview-section="dress" data-rich-preview="dress">
+                <div class="preview-dress-intro"><small>ДРЕСС-КОД</small><div class="preview-feature-card"><span class="preview-feature-icon">◈</span><p id="preview-dress-text">Будем рады видеть вас в вечерних нарядах спокойных оттенков</p><div class="preview-palette" id="preview-dress-palette"></div><h3 id="preview-dress-palette-name">Природная элегантность</h3><em>Ниже — примеры образов для девушек и мужчин</em></div></div>
+                <article class="preview-dress-screen" data-preview-dress-group="women"><header><span>01</span><div><small>ПРИМЕРЫ ОБРАЗОВ</small><h3>Девушкам</h3></div><b id="preview-dress-women-counter">1 / 5</b></header><button type="button" class="preview-dress-photo" data-preview-dress-open="women" aria-label="Открыть женские образы на весь экран"><img id="preview-dress-women-image" src="assets/dress-code/looks/natural/women-1.jpg" alt="Женский образ 1"></button><nav><button type="button" data-preview-dress-move="-1" aria-label="Предыдущий женский образ">‹</button><div id="preview-dress-women-dots" class="preview-dress-dots"></div><button type="button" data-preview-dress-move="1" aria-label="Следующий женский образ">›</button></nav><p id="preview-dress-women">Вечерние платья и костюмы</p></article>
+                <article class="preview-dress-screen" data-preview-dress-group="men"><header><span>02</span><div><small>ПРИМЕРЫ ОБРАЗОВ</small><h3>Мужчинам</h3></div><b id="preview-dress-men-counter">1 / 5</b></header><button type="button" class="preview-dress-photo" data-preview-dress-open="men" aria-label="Открыть мужские образы на весь экран"><img id="preview-dress-men-image" src="assets/dress-code/looks/natural/men-1.jpg" alt="Мужской образ 1"></button><nav><button type="button" data-preview-dress-move="-1" aria-label="Предыдущий мужской образ">‹</button><div id="preview-dress-men-dots" class="preview-dress-dots"></div><button type="button" data-preview-dress-move="1" aria-label="Следующий мужской образ">›</button></nav><p id="preview-dress-men">Рубашка, брюки и пиджак</p></article>
+              </section>
+              <section class="preview-section preview-feature preview-gifts" data-preview-section="gifts" data-rich-preview="gifts">
+                <small>НАШИ ПОЖЕЛАНИЯ</small>
+                <div class="preview-gifts-intro"><span>◇</span><p id="preview-gifts-text">Главный подарок для нас — ваше присутствие. Если захотите порадовать нас чем-то особенным, мы собрали несколько идей.</p></div>
+                <div class="preview-gift-carousel">
+                  <div class="preview-gift-list" id="preview-gift-list"></div>
+                  <div class="preview-gift-navigation" id="preview-gift-navigation" hidden><button type="button" id="preview-gift-prev" aria-label="Предыдущий подарок">‹</button><div id="preview-gift-dots"></div><button type="button" id="preview-gift-next" aria-label="Следующий подарок">›</button></div>
+                </div>
+                <p class="preview-gifts-note" id="preview-gifts-note">Бронь скрывает подарок от повторного выбора. Другие гости не увидят, кто его забронировал.</p>
+              </section>
+              <section class="preview-section preview-feature" data-preview-section="flowers" data-rich-preview="flowers"><small>ЦВЕТЫ</small><div class="preview-feature-card"><span class="preview-feature-icon">✿</span><p id="preview-flowers-text">Замените букет бутылочкой вина или книгой</p></div></section>
+              <section class="preview-section preview-feature preview-format" data-preview-section="format" data-rich-preview="format">
+                <small id="preview-format-label">ВАЖНО ЗНАТЬ</small>
+                <div class="preview-format-ornament" aria-hidden="true"><i></i><span id="preview-format-icon">18+</span><i></i></div>
+                <div class="preview-feature-card preview-format-card">
+                  <span class="preview-format-eyebrow">ФОРМАТ НАШЕГО ПРАЗДНИКА</span>
+                  <h3 id="preview-format-title">Только для взрослых</h3>
+                  <p id="preview-format-text">Пожалуйста, заранее предусмотрите, с кем останутся дети, пока вы будете отдыхать на празднике.</p>
+                </div>
+              </section>
+              <section class="preview-section preview-feature" data-preview-section="transfer" data-rich-preview="transfer"><small>ТРАНСФЕР</small><p class="preview-feature-intro">Выберите удобный маршрут и забронируйте место при подтверждении присутствия.</p><div class="preview-transfer-list" id="preview-transfer-list"></div></section>
+              <section class="preview-section preview-feature" data-preview-section="accommodation" data-rich-preview="accommodation"><small>ГДЕ ОСТАНОВИТЬСЯ</small><p class="preview-feature-intro">Подобрали удобные варианты рядом с площадкой. Выберите подходящий и забронируйте напрямую.</p><div class="preview-accommodation-list" id="preview-accommodation-list"></div></section>
+              <section class="preview-section preview-feature" data-preview-section="menu" data-rich-preview="menu"><small>МЕНЮ</small><div class="preview-feature-card"><span class="preview-feature-icon">♨</span><p id="preview-menu-text">Расскажите гостям о меню и доступных вариантах питания</p><div class="preview-tags" id="preview-menu-tags"></div></div></section>
+              <section class="preview-section preview-feature" data-preview-section="activities" data-rich-preview="activities"><small>АКТИВНОСТИ</small><div class="preview-feature-card"><span class="preview-feature-icon">✦</span><h3 id="preview-activities-title">Чем займёмся вместе</h3><p id="preview-activities-text">Добавьте развлечения и важные активности</p></div></section>
+              <section class="preview-section preview-feature" data-preview-section="prewedding" data-rich-preview="prewedding"><small>ДО СВАДЬБЫ</small><div class="preview-feature-card"><span class="preview-feature-icon">☆</span><h3 id="preview-prewedding-title">Welcome-вечеринка</h3><p id="preview-prewedding-details">Дата · время · место</p><em id="preview-prewedding-text">Соберёмся заранее в неформальной обстановке</em></div></section>
+              <section class="preview-section preview-feature" data-preview-section="gallery" data-rich-preview="gallery"><small>НАШИ ФОТОГРАФИИ</small><div class="preview-gallery" id="preview-gallery"><span>ВАШИ ФОТО</span><span>ВАШИ ФОТО</span><span>ВАШИ ФОТО</span></div></section>
+              <section class="preview-section preview-feature" data-preview-section="childhood" data-rich-preview="childhood"><small>КАК ВСЁ НАЧИНАЛОСЬ</small><div class="preview-childhood"><span id="preview-child-one">ФОТО</span><b>и</b><span id="preview-child-two">ФОТО</span></div><p id="preview-childhood-text">Узнали нас?</p></section>
+              <section class="preview-section preview-feature" data-preview-section="video" data-rich-preview="video"><small>НАШЕ ВИДЕО</small><div class="preview-video"><span>▶</span><p id="preview-video-caption">Нажмите, чтобы посмотреть нашу историю</p></div></section>
+              <section class="preview-section preview-feature" data-preview-section="faq" data-rich-preview="faq"><small>ВОПРОСЫ И ОТВЕТЫ</small><div class="preview-faq" id="preview-faq-list"><article><b>Можно ли приехать с детьми?</b><p>Добавьте ваш ответ</p></article></div></section>
+              <section class="preview-section preview-feature preview-contacts" data-preview-section="contacts" data-rich-preview="contacts"><small>КОНТАКТЫ</small><div class="preview-feature-card preview-contact-card"><span class="preview-contact-photo" id="preview-contact-photo">ФОТО</span><p id="preview-contact-text">В день торжества по всем вопросам можно обратиться к координатору</p><h3 id="preview-contact-name">Анна</h3><div class="preview-contact-actions"><a id="preview-contact-telegram" hidden>Telegram</a><a id="preview-contact-whatsapp" hidden>WhatsApp</a><a id="preview-contact-max" hidden>MAX</a></div></div></section>
+              <section class="preview-section preview-rsvp" data-preview-section="rsvp">
+                <small>БУДЕТЕ ЛИ ВЫ С НАМИ?</small>
+                <p id="preview-rsvp-copy">Ответьте, пожалуйста, на несколько коротких вопросов</p>
+                <b class="preview-rsvp-time">Анкета займёт около 1 минуты</b>
+                <div class="preview-rsvp-questions" id="preview-rsvp-questions"></div>
+                <button type="button" id="preview-rsvp-open">Ответить на приглашение <span>→</span></button>
+                <em class="preview-rsvp-hint">Нажмите — вопросы откроются на весь экран</em>
+              </section>
+              <p class="preview-footer">ЖДЁМ ВАС</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="change-template" id="change-template">◫ Изменить шаблон</button>
+      </aside>
+
+      <section class="editor-pane">
+        <div class="editor-head">
+          <div>
+            <span class="eyebrow">НАСТРОЙКА ПРИГЛАШЕНИЯ</span>
+            <h1 id="step-title">Основная информация</h1>
+            <p id="step-description">Заполните только обязательные данные. Остальное можно добавить позже.</p>
+          </div>
+          <div class="completion" aria-label="Позиция в редакторе; готовность к публикации указана на шаге проверки">
+            <div class="completion-meta"><button type="button" class="step-overview-toggle" id="step-overview-toggle" aria-expanded="false" aria-controls="step-overview"><span id="step-counter">Шаг 1 из 23</span><small>Все шаги</small><i>⌄</i></button><span><b id="completion-value">1 из 23</b> — позиция в редакторе</span></div>
+            <div class="completion-track" id="completion-track" role="img" aria-label="Позиция в редакторе"><i id="completion-bar"></i></div>
+          </div>
+        </div>
+
+        <div class="steps" id="step-overview" role="tablist" aria-label="Шаги создания приглашения">
+          <button type="button" class="step-tab is-active" data-step="1"><i>1</i><span>Цвет</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="2"><i>2</i><span>Имена</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="3"><i>3</i><span>Текст</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="4"><i>4</i><span>Дата</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="5"><i>5</i><span>Место</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="6"><i>6</i><span>Программа</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="7"><i>7</i><span>История</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="8"><i>8</i><span>Дресс-код</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="9"><i>9</i><span>Подарки</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="10"><i>10</i><span>Цветы</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="11"><i>11</i><span>Формат</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="12"><i>12</i><span>Трансфер</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="13"><i>13</i><span>Проживание</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="14"><i>14</i><span>Меню</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="15"><i>15</i><span>Активности</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="16"><i>16</i><span>До свадьбы</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="17"><i>17</i><span>Фото</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="18"><i>18</i><span>Детские фото</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="19"><i>19</i><span>Видео</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="20"><i>20</i><span>FAQ</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="21"><i>21</i><span>Контакты</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="22"><i>22</i><span>Гости</span><b>✓</b></button>
+          <button type="button" class="step-tab" data-step="23"><i>23</i><span>Готово</span><b>✓</b></button>
+        </div>
+
+        <div class="form-scroll">
+          <div class="step-panel is-active" data-step-panel="1" data-preview-target="style">
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 1 ИЗ 23</span><h2>Выберите цвет приглашения</h2><p>Нажмите на цвет — результат сразу появится в телефоне слева.</p></div></div>
+              <label><span>Готовые палитры</span><div class="colors"><button type="button" class="color is-active" data-color="#123f33" style="--swatch:#123f33"><i></i><b>Изумруд</b><small>торжественно</small></button><button type="button" class="color" data-color="#6e0e24" style="--swatch:#6e0e24"><i></i><b>Бордо</b><small>вечерняя</small></button><button type="button" class="color" data-color="#253752" style="--swatch:#253752"><i></i><b>Синий</b><small>классика</small></button><button type="button" class="color" data-color="#8f725f" style="--swatch:#8f725f"><i></i><b>Бежевый</b><small>нежная</small></button><label class="custom-color"><i>＋</i><b>Свой цвет</b><small>настроить</small><input type="color" id="custom-color" value="#123f33"></label></div></label>
+              <button type="button" class="outline-button wide mobile-template-change" id="mobile-change-template">Изменить дизайн приглашения</button>
+              <div class="step-hint">← Меняется весь фон приглашения</div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="2" data-preview-target="names">
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 2 ИЗ 23</span><h2>Как вас зовут?</h2><p>Введите два имени именно так, как они должны выглядеть в приглашении.</p></div><span class="required-note">* обязательно</span></div>
+              <div class="form-grid two"><label><span>Ваше имя *</span><input id="name-one" value="Роман" maxlength="32" autocomplete="given-name"><small>Например: Роман</small></label><label><span>Имя партнёра *</span><input id="name-two" value="Полина" maxlength="32" autocomplete="off"><small>Например: Полина</small></label></div>
+              <div class="step-hint">← Имена подсвечены в телефоне</div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="4" data-preview-target="date">
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 4 ИЗ 23</span><h2>Когда состоится свадьба?</h2><p>Укажите дату и время, к которому приглашать гостей.</p></div><span class="required-note">* обязательно</span></div>
+              <div class="form-grid two date-time-grid">
+                <div class="date-time-field">
+                  <label class="date-time-label" for="event-date-text">Дата события *</label>
+                  <div class="date-time-control">
+                    <input id="event-date-text" class="date-time-text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="ДД.ММ.ГГГГ" aria-describedby="event-date-help">
+                    <button id="event-date-picker" class="date-time-picker" type="button" aria-label="Открыть календарь">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
+                      <span>Календарь</span>
+                    </button>
+                    <input id="event-date" class="native-picker-input" type="date" value="2026-09-14" tabindex="-1" aria-hidden="true" aria-label="Дата события">
+                  </div>
+                  <small id="event-date-help" class="date-time-help">Введите дату или выберите её в календаре</small>
+                </div>
+                <div class="date-time-field">
+                  <label class="date-time-label" for="event-time-text">Сбор гостей</label>
+                  <div class="date-time-control">
+                    <input id="event-time-text" class="date-time-text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="ЧЧ:ММ" aria-describedby="event-time-help">
+                    <button id="event-time-picker" class="date-time-picker" type="button" aria-label="Выбрать время">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                      <span>Выбрать</span>
+                    </button>
+                    <input id="event-time" class="native-picker-input" type="time" value="16:00" tabindex="-1" aria-hidden="true">
+                  </div>
+                  <small id="event-time-help" class="date-time-help">Введите время или откройте системный выбор</small>
+                </div>
+              </div>
+              <div class="step-hint">← Дата подсвечена в телефоне</div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="5" data-preview-target="place">
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 5 ИЗ 23</span><h2>Где пройдёт событие?</h2><p>Добавьте место вручную или вставьте ссылку из удобного сервиса карт.</p></div><span class="required-note">* обязательно</span></div>
+              <div class="map-link-card">
+                <div class="map-link-guide"><span>1</span><p><b>Ссылка из любого сервиса карт</b><small>В приложении или браузере нажмите «Поделиться» → «Скопировать ссылку»</small></p></div>
+                <div class="map-services" aria-label="Поддерживаемые сервисы"><span>Яндекс Карты</span><span>2ГИС</span><span>Google Maps</span><span>Apple Карты</span><span>Другая карта</span></div>
+                <label><span>Ссылка на место <small class="optional-inline">необязательно</small></span><div class="input-action"><input id="map-url" type="text" data-rich-field="mapUrl" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" placeholder="Вставьте ссылку на место"><button type="button" id="map-link-apply">Сохранить ссылку</button></div><small>Если ссылки нет, заполните название и адрес ниже — шаг всё равно можно завершить.</small></label>
+                <p class="map-link-status" id="map-link-status">Источник определится автоматически, а кнопка в приглашении получит понятное название.</p>
+              </div>
+              <div class="location-result-card">
+                <div class="location-result-head"><span>2</span><p><b>Место в приглашении</b><small>Название и адрес обязательны. Если они есть в ссылке — мы подставим их, иначе заполните вручную.</small></p></div>
+                <label><span>Название площадки *</span><input id="venue" value="Усадьба Лесная" autocomplete="off"></label>
+                <label><span>Адрес *</span><input id="address" value="Московская область" autocomplete="off"></label>
+              </div>
+              <div class="upload-zone compact-upload" data-media-upload="venuePhoto"><input type="file" id="venue-photo" accept="image/*" aria-label="Загрузить фотографию площадки"><span>＋</span><p><b>Фотография площадки</b><small>Гости узнают место ещё до поездки</small></p></div>
+              <input type="hidden" data-rich-field="venuePhoto">
+              <label><span>Как найти площадку и парковку <small class="optional-inline">необязательно</small></span><textarea rows="4" data-rich-field="venueNote">На территории есть бесплатная парковка. После въезда следуйте указателям к главному залу.</textarea></label>
+              <div class="smart-suggestion"><span>⌖</span><p><b>Гость откроет место одним нажатием</b><small>Напишем «Открыть в 2ГИС», «Открыть в Яндекс Картах» или название другого найденного сервиса.</small></p><button type="button" id="map-preview-button">Проверить маршрут</button></div>
+              <div class="step-hint">← Место подсвечено в телефоне</div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="3" data-preview-target="message">
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 3 ИЗ 23</span><h2>Обращение к гостям</h2><p>Можно оставить готовый текст или написать свой.</p></div></div>
+              <label><span>Короткое обращение</span><textarea id="message" rows="4" maxlength="140">Будем счастливы разделить с вами этот особенный день</textarea><small class="counter"><span id="message-count">61</span>/140</small></label>
+              <div class="quick-copy"><span>Можно выбрать готовый вариант</span><div><button type="button" data-message-template="Будем счастливы разделить с вами этот особенный день">Тёплый</button><button type="button" data-message-template="Приглашаем вас стать частью одного из самых важных дней нашей жизни">Торжественный</button><button type="button" data-message-template="Очень хотим видеть вас рядом, когда начнётся наша семейная история">Душевный</button></div></div>
+              <div class="step-hint">← Текст подсвечен в телефоне</div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="7" data-preview-target="story">
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 7 ИЗ 23</span><h2>Расскажите вашу историю</h2><p>Добавьте любимую фотографию и несколько тёплых предложений о вашей паре.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="story" checked><i></i><span>Добавить раздел</span></label></div>
+              <div class="upload-zone compact-upload" data-media-upload="storyPhoto"><input type="file" id="story-photo" accept="image/*" aria-label="Загрузить фотографию пары"><span>＋</span><p><b>Фотография вашей пары</b><small>Лучше вертикальный снимок без текста</small></p></div>
+              <input type="hidden" data-rich-field="storyPhoto">
+              <label><span>Как вы познакомились</span><textarea rows="7" data-rich-field="storyText" placeholder="Например: мы одновременно потянулись за последним попкорном…">Мы встретились случайно, но с первой встречи поняли, что впереди нас ждёт большая общая история.</textarea><small>Лучше 2–4 коротких предложения — их легко читать с телефона.</small></label>
+              <div class="step-hint">← Раздел «Наша история» показан по центру телефона</div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="6" data-preview-target="schedule">
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 6 ИЗ 23</span><h2>Программа дня</h2><p>Добавьте только основные события. Гости увидят их в таком же порядке.</p></div><button type="button" class="text-button" id="add-event">＋ Добавить</button></div>
+              <div class="smart-suggestion"><span>✦</span><p><b>Не хотите заполнять вручную?</b><small>Поставим стандартную свадебную программу — время можно изменить.</small></p><button type="button" id="schedule-preset">Заполнить</button></div>
+              <div class="schedule-list" id="schedule-list"></div>
+              <div class="step-hint">← Телефон прокручен к программе</div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="0" data-preview-target="details" hidden>
+            <div class="form-card focused-card">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 7 ИЗ 9</span><h2>Что ещё важно знать гостям?</h2><p>Включите только нужные пункты. Ненужные блоки не попадут в приглашение.</p></div></div>
+              <div class="option-list"><label class="option-row"><span>👗</span><p><b>Дресс-код</b><small>Цвета и пожелания к одежде</small></p><input type="checkbox" data-option="dress" checked><i></i></label><label class="option-row"><span>🎁</span><p><b>Список подарков</b><small>Пожелания или ссылка на вишлист</small></p><input type="checkbox" data-option="gifts"><i></i></label><label class="option-row"><span>🚕</span><p><b>Трансфер</b><small>Место и время отправления</small></p><input type="checkbox" data-option="transfer"><i></i></label></div>
+              <div class="option-detail is-active" data-option-detail="dress"><label><span>Пожелание по дресс-коду</span><textarea rows="2" placeholder="Например: спокойные природные оттенки">Будем рады видеть вас в вечерних нарядах спокойных оттенков</textarea></label></div>
+              <div class="option-detail" data-option-detail="gifts"><label><span>Пожелание по подаркам</span><textarea rows="2" placeholder="Например: будем признательны за подарок в конверте"></textarea></label></div>
+              <div class="option-detail" data-option-detail="transfer"><div class="form-grid two"><label><span>Место отправления</span><input placeholder="Адрес или ориентир"></label><label><span>Время</span><input type="time"></label></div></div>
+              <div class="section-library-head"><div><b>Дополнительные разделы</b><small>Включайте только то, что пригодится вашим гостям</small></div><span>Всё входит в тариф</span></div>
+              <div class="smart-suggestion"><span>✓</span><p><b>Рекомендуемый набор</b><small>Дресс-код, карта и ответы на частые вопросы. Таймер включён автоматически.</small></p><button type="button" id="essential-sections">Выбрать</button></div>
+              <div class="section-library" id="section-library">
+                <label class="section-choice"><span>⚡</span><p><b>Активности</b><small>Развлечения и важные активности</small></p><input type="checkbox" data-section="activities"><i></i></label>
+                <label class="section-choice"><span>☆</span><p><b>До свадьбы</b><small>Welcome-вечеринка или репетиция</small></p><input type="checkbox" data-section="prewedding"><i></i></label>
+                <label class="section-choice"><span>⌂</span><p><b>Проживание</b><small>Отели и условия размещения</small></p><input type="checkbox" data-section="accommodation"><i></i></label>
+                <label class="section-choice"><span>♨</span><p><b>Меню</b><small>Блюда и варианты питания</small></p><input type="checkbox" data-section="menu"><i></i></label>
+                <label class="section-choice"><span>▧</span><p><b>Фотогалерея</b><small>Фотографии вашей пары</small></p><input type="checkbox" data-section="gallery"><i></i></label>
+                <label class="section-choice"><span>⌖</span><p><b>Карта</b><small>Маршрут до площадки</small></p><input type="checkbox" data-section="map" checked><i></i></label>
+                <label class="section-choice"><span>♡</span><p><b>История пары</b><small>Как вы познакомились</small></p><input type="checkbox" data-section="loveStory"><i></i></label>
+                <label class="section-choice"><span>?</span><p><b>Вопросы и ответы</b><small>Ответы на частые вопросы гостей</small></p><input type="checkbox" data-section="faq"><i></i></label>
+                <label class="section-choice"><span>▣</span><p><b>Детские фото</b><small>Фотографии жениха и невесты</small></p><input type="checkbox" data-section="childhood"><i></i></label>
+                <label class="section-choice"><span>▷</span><p><b>Видео</b><small>Тизер, love story или обращение</small></p><input type="checkbox" data-section="video"><i></i></label>
+              </div>
+              <div class="section-configs" id="section-configs"></div>
+              <div class="custom-section-builder">
+                <div><b>Свой раздел</b><small>Добавьте любую информацию, которой нет в списке</small></div>
+                <div class="custom-section-form"><input id="custom-section-title" maxlength="50" placeholder="Название раздела" aria-label="Название дополнительного раздела"><input id="custom-section-text" maxlength="180" placeholder="Что увидят гости" aria-label="Текст дополнительного раздела"><button type="button" class="outline-button small" id="add-custom-section">＋ Добавить</button></div>
+                <div id="custom-section-list"></div>
+              </div>
+              <details class="media-details"><summary>Фото и музыка <span>необязательно</span></summary><div class="upload-zone" id="photo-upload" data-media-upload="coverPhoto"><input type="file" id="photo-input" accept="image/*" aria-label="Загрузить фотографию для первого экрана"><span>＋</span><p><b>Добавить фотографию</b><small>JPG или PNG · до 10 МБ</small></p><button type="button" class="outline-button">Выбрать фото</button></div><input type="hidden" data-rich-field="coverPhoto"><label><span>Музыка</span><div class="music-row"><input type="file" id="music-input" accept="audio/mpeg,audio/mp3" hidden><button class="play-button" id="music-play" type="button">▶</button><div><b id="music-name">Музыка не выбрана</b><small>MP3 · до 15 МБ</small></div><button class="text-button" id="music-select" type="button">Выбрать</button></div></label></details>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="8" data-preview-target="dress"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 8 ИЗ 23</span><h2>Дресс-код</h2><p>Покажите палитру и отдельно подскажите, что надеть девушкам и мужчинам.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="dress" checked><i></i><span>Добавить раздел</span></label></div>
+            <div class="dress-preset-heading"><div><span>ГОТОВЫЕ ГАММЫ</span><h3>Выберите настроение</h3></div><p>Палитра, тексты и десять образов подставятся автоматически.</p></div>
+            <div class="dress-preset-grid" id="dress-preset-grid">
+              <button type="button" class="dress-preset is-active" data-dress-preset="natural"><img src="assets/dress-code/natural-lookbook.jpg" alt="Природная гамма"><span><b>Природная</b><small>зелёный · золото · терракота</small><i><em style="--c:#183f35"></em><em style="--c:#b08b57"></em><em style="--c:#eadfc9"></em><em style="--c:#9b7069"></em><em style="--c:#5f6874"></em></i></span></button>
+              <button type="button" class="dress-preset" data-dress-preset="burgundy"><img src="assets/dress-code/burgundy-lookbook.jpg" alt="Бордовая гамма"><span><b>Винная</b><small>бордо · пыльная роза · шампань</small><i><em style="--c:#651725"></em><em style="--c:#9b6066"></em><em style="--c:#d7b58e"></em><em style="--c:#ede0cb"></em><em style="--c:#33282a"></em></i></span></button>
+              <button type="button" class="dress-preset" data-dress-preset="blacktie"><img src="assets/dress-code/blacktie-lookbook.jpg" alt="Black tie гамма"><span><b>Black tie</b><small>чёрный · графит · ночной синий</small><i><em style="--c:#111111"></em><em style="--c:#3c3e43"></em><em style="--c:#17213b"></em><em style="--c:#a9a9ab"></em><em style="--c:#eee9df"></em></i></span></button>
+              <button type="button" class="dress-preset" data-dress-preset="pastel"><img src="assets/dress-code/pastel-lookbook.jpg" alt="Пастельная гамма"><span><b>Пыльная пастель</b><small>шалфей · голубой · розовый</small><i><em style="--c:#aab69a"></em><em style="--c:#aebfd7"></em><em style="--c:#d9aaa0"></em><em style="--c:#b8adc3"></em><em style="--c:#eee6d8"></em></i></span></button>
+            </div>
+            <label><span>Общее пожелание</span><textarea rows="3" data-rich-field="dressText">Будем рады видеть вас в вечерних нарядах спокойных природных оттенков.</textarea></label>
+            <div class="palette-editor"><span>Цветовая палитра</span><div><input type="color" value="#183f35" data-rich-field="dressColor1" aria-label="Первый цвет палитры"><input type="color" value="#b08b57" data-rich-field="dressColor2" aria-label="Второй цвет палитры"><input type="color" value="#eadfc9" data-rich-field="dressColor3" aria-label="Третий цвет палитры"><input type="color" value="#9b7069" data-rich-field="dressColor4" aria-label="Четвёртый цвет палитры"><input type="color" value="#5f6874" data-rich-field="dressColor5" aria-label="Пятый цвет палитры"></div></div>
+            <div class="form-grid two"><label><span>Девушкам</span><textarea rows="4" data-rich-field="dressWomen">Вечерние платья, костюмы, юбки и аксессуары из палитры.</textarea></label><label><span>Мужчинам</span><textarea rows="4" data-rich-field="dressMen">Рубашка, брюки и пиджак. Лоферы или классические кроссовки.</textarea></label></div>
+            <input type="hidden" data-rich-field="dressPaletteKey" value="natural">
+            <div class="dress-tip"><span>✓</span><p><b>Гостю не придётся угадывать</b>Он увидит точные цвета, отдельные рекомендации и десять наглядных образов в одном стиле.</p></div>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="9" data-preview-target="gifts"><div class="form-card focused-card gift-builder-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 9 ИЗ 23</span><h2>Подарки и виш-лист</h2><p>Добавьте конкретные подарки. Гости смогут открыть магазин и забронировать выбранный вариант без регистрации.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="gifts"><i></i><span>Добавить раздел</span></label></div>
+            <label><span>Обращение к гостям</span><textarea rows="3" data-rich-field="giftsText">Главный подарок для нас — ваше присутствие. Если захотите порадовать нас чем-то особенным, мы собрали несколько идей.</textarea></label>
+            <div class="gift-builder">
+              <div class="gift-builder-heading"><div><span>ВАШ ВИШ-ЛИСТ</span><h3>Как добавить подарок?</h3></div><p>Выберите один из двух простых способов</p></div>
+              <div class="gift-mode-tabs" role="tablist" aria-label="Способ добавления подарка"><button type="button" class="is-active" data-gift-mode="link" role="tab" aria-selected="true"><span>↗</span><b>По ссылке</b><small>Название распознается из ссылки</small></button><button type="button" data-gift-mode="manual" role="tab" aria-selected="false"><span>＋</span><b>Вручную</b><small>Если ссылки на товар нет</small></button></div>
+              <section class="gift-mode-panel" data-gift-panel="link">
+                <div class="gift-mode-copy"><span>01</span><p><b>Вставьте ссылку на товар</b><small>Ozon, Wildberries, Яндекс Маркет или любой другой магазин. Мы подготовим единую красивую карточку.</small></p></div>
+                <div class="gift-link-row"><label><span>Ссылка на товар</span><input type="url" id="gift-url" placeholder="https://..."></label><button class="primary-button" type="button" id="gift-import">Сохранить ссылку</button></div>
+                <p class="gift-import-status" id="gift-import-status" role="status" aria-live="polite">Название распознаётся из ссылки. Проверьте его, затем при необходимости добавьте цену и фотографию — карточка сразу появится в приглашении.</p>
+              </section>
+              <section class="gift-mode-panel" data-gift-panel="manual" hidden>
+                <div class="gift-mode-copy"><span>02</span><p><b>Создайте карточку самостоятельно</b><small>Достаточно названия и фотографии. Цену и ссылку добавляйте только при необходимости.</small></p></div>
+                <div class="gift-fields gift-manual-fields"><label><span>Название подарка</span><input id="gift-manual-title" placeholder="Например, кофемашина"></label><label class="gift-photo-upload gift-photo-main"><span>Фотография подарка *</span><input type="file" id="gift-manual-image-file" accept="image/jpeg,image/png,image/webp"><b id="gift-manual-image-label">Выбрать фотографию</b></label></div>
+                <details class="gift-extra-fields"><summary>Добавить цену или ссылку <span>необязательно</span></summary><div class="gift-fields"><label><span>Цена</span><input id="gift-manual-price" placeholder="24 990 ₽"></label><label><span>Ссылка на товар или магазин</span><input type="url" id="gift-manual-url" placeholder="https://..."></label></div></details>
+                <button class="primary-button gift-add-button" type="button" id="gift-manual-add">Добавить подарок</button>
+                <p class="gift-import-status" id="gift-manual-status" role="status" aria-live="polite">Для карточки нужны только название и фотография.</p>
+              </section>
+            </div>
+            <div class="gift-editor-section"><div><h3>Добавленные подарки</h3><span id="gift-count">0 подарков</span></div><div class="gift-editor-list" id="gift-editor-list"></div></div>
+            <div class="gift-privacy"><span>✓</span><p><b>Без неловкости и дублей</b>Гость бронирует без регистрации. Остальные увидят только, что подарок занят, а имя будет доступно паре в личном кабинете.</p></div>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="10" data-preview-target="flowers"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 10 ИЗ 23</span><h2>Пожелания по цветам</h2><p>Предложите гостям удобную альтернативу букетам.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="flowers" checked><i></i><span>Добавить раздел</span></label></div>
+            <label><span>Что написать гостям</span><textarea rows="6" data-rich-field="flowersText">Пожалуйста, не дарите нам цветы — мы не успеем насладиться их красотой до путешествия. Если захотите сделать комплимент, замените букет бутылочкой вина или любимой книгой.</textarea></label>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="11" data-preview-target="format"><div class="form-card focused-card format-editor">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 11 ИЗ 23</span><h2>Формат торжества</h2><p>Одним нажатием объясните гостям, можно ли приходить с детьми. Выбранный вариант сразу изменит приглашение.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="format" checked><i></i><span>Добавить раздел</span></label></div>
+            <div class="format-choice-head"><span>КОГО ВЫ ЖДЁТЕ?</span><p>Выберите один вариант</p></div>
+            <div class="format-choice-grid" role="radiogroup" aria-label="Формат праздника">
+              <button type="button" class="format-choice is-active" data-format-preset="adults" role="radio" aria-checked="true"><i>18+</i><span><b>Только взрослые</b><small>Праздник без детей</small></span><em>✓</em></button>
+              <button type="button" class="format-choice" data-format-preset="family" role="radio" aria-checked="false"><i>ВСЕ</i><span><b>Всей семьёй</b><small>Будем рады гостям с детьми</small></span><em>✓</em></button>
+              <button type="button" class="format-choice" data-format-preset="teens" role="radio" aria-checked="false"><i>12+</i><span><b>Дети старше 12 лет</b><small>Для подростков и взрослых</small></span><em>✓</em></button>
+              <button type="button" class="format-choice" data-format-preset="ask" role="radio" aria-checked="false"><i>?</i><span><b>По согласованию</b><small>Попросим написать вам заранее</small></span><em>✓</em></button>
+            </div>
+            <input type="hidden" data-rich-field="formatType" value="adults">
+            <input type="hidden" data-rich-field="formatTitle" value="Праздник только для взрослых">
+            <label class="format-message"><span>Текст для гостей</span><textarea rows="5" data-rich-field="formatText">Мы хотим, чтобы вы отдохнули вместе с нами, поэтому праздник пройдёт только для взрослых. Пожалуйста, заранее позаботьтесь, с кем останутся дети.</textarea><small>Можно оставить готовый текст или написать своим языком.</small></label>
+            <div class="format-preview-hint"><span>✓</span><p><b>Гость увидит это отдельным красивым блоком</b><small>Знак, заголовок и обращение уже меняются в предпросмотре слева.</small></p></div>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="12" data-preview-target="transfer"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 12 ИЗ 23</span><h2>Маршруты трансфера</h2><p>Добавьте поездки на свадьбу и обратно. Гость выберет нужный маршрут в анкете.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="transfer"><i></i><span>Добавить раздел</span></label></div>
+            <div class="transfer-toolbar"><div><b>Маршруты</b><small>Каждая поездка — отдельная понятная карточка</small></div><div><button type="button" class="outline-button small" id="transfer-preset">＋ Туда и обратно</button><button type="button" class="primary-button small" id="add-transfer-route">＋ Маршрут</button></div></div>
+            <div class="transfer-route-list" id="transfer-route-list"></div>
+            <div class="transfer-help"><span>i</span><p><b>Что увидит гость</b>Точка посадки, время, фотография ориентира, автобус и оставшиеся места. Выбранный маршрут попадёт в список ответов.</p></div>
+            <div hidden><input data-rich-field="transferPlace"><input data-rich-field="transferTime"><input data-rich-field="transferNumber"><input data-rich-field="transferPhone"><textarea data-rich-field="transferText"></textarea></div>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="13" data-preview-target="accommodation"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 13 ИЗ 23</span><h2>Варианты проживания</h2><p>Добавьте несколько отелей или апартаментов — гости сравнят условия и забронируют напрямую.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="accommodation"><i></i><span>Добавить раздел</span></label></div>
+            <div class="accommodation-toolbar"><div><b>Варианты жилья</b><small>Один объект — одна понятная карточка</small></div><div><button type="button" class="outline-button small" id="accommodation-preset">＋ Готовые примеры</button><button type="button" class="primary-button small" id="add-accommodation">＋ Вариант</button></div></div>
+            <div class="accommodation-editor-list" id="accommodation-editor-list"></div>
+            <div class="transfer-help"><span>i</span><p><b>Что увидит гость</b>Фото, стоимость, расстояние до площадки, время заезда и выезда, промокод и две кнопки: бронирование и маршрут.</p></div>
+            <div hidden><input data-rich-field="hotelName"><input data-rich-field="hotelAddress"><input data-rich-field="hotelCheckin"><input data-rich-field="hotelCheckout"><input data-rich-field="hotelUrl"><textarea data-rich-field="hotelText"></textarea></div>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="14" data-preview-target="menu"><div class="form-card focused-card menu-editor">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 14 ИЗ 23</span><h2>Меню</h2><p>Расскажите о формате ужина и вариантах питания — предпочтения гость укажет в анкете.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="menu"><i></i><span>Добавить раздел</span></label></div>
+            <label><span>Описание меню</span><textarea rows="5" data-rich-field="menuText">Праздничный ужин включает закуски, горячее и десерт. Для гостей доступны специальные варианты.</textarea></label>
+            <label><span>Варианты меню</span><input data-rich-field="menuOptions" value="Классическое, Вегетарианское, Детское" placeholder="Классическое, Вегетарианское, Детское"><small>Здесь гость знакомится с меню. Выбрать подходящий вариант он сможет в финальной анкете — только после ответа «Буду».</small></label>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="15" data-preview-target="activities"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 15 ИЗ 23</span><h2>Активности</h2><p>Отдельно покажите гостям, какие развлечения их ждут.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="activities"><i></i><span>Добавить раздел</span></label></div>
+            <label><span>Заголовок</span><input data-rich-field="activitiesTitle" value="Чем займёмся вместе"></label>
+            <label><span>Описание</span><textarea rows="6" data-rich-field="activitiesText" placeholder="Фотобудка, мастер-класс, прогулка, игры...">Фотобудка, моментальные снимки, открытый микрофон и много танцев.</textarea></label>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="16" data-preview-target="prewedding"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 16 ИЗ 23</span><h2>Встреча до свадьбы</h2><p>Welcome-вечеринка, репетиция или совместный ужин — отдельное событие с собственными данными.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="prewedding"><i></i><span>Добавить раздел</span></label></div>
+            <label><span>Название</span><input data-rich-field="preweddingTitle" value="Welcome-вечеринка"></label>
+            <div class="form-grid two"><label><span>Дата и время</span><input type="datetime-local" data-rich-field="preweddingDate"></label><label><span>Место</span><input data-rich-field="preweddingPlace" placeholder="Название и адрес"></label></div>
+            <label><span>Что ждёт гостей</span><textarea rows="4" data-rich-field="preweddingText">Соберёмся накануне в неформальной обстановке, познакомимся и проведём вечер вместе.</textarea></label>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="17" data-preview-target="gallery"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 17 ИЗ 23</span><h2>Фотогалерея пары</h2><p>Загрузите 3–8 фотографий. Первая станет главной в этом разделе.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="gallery"><i></i><span>Добавить раздел</span></label></div>
+            <div class="upload-zone" data-media-upload="galleryPhotos"><input type="file" id="gallery-upload" accept="image/*" multiple aria-label="Загрузить фотографии пары"><span>＋</span><p><b>Добавить фотографии</b><small>JPG, PNG или HEIC · до 10 МБ каждая</small></p></div>
+            <input type="hidden" data-rich-field="galleryPhotos">
+          </div></div>
+
+          <div class="step-panel" data-step-panel="18" data-preview-target="childhood"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 18 ИЗ 23</span><h2>Детские фотографии</h2><p>Два отдельных снимка превращаются в тёплый самостоятельный раздел.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="childhood"><i></i><span>Добавить раздел</span></label></div>
+            <div class="form-grid two"><div class="upload-zone compact-upload" data-media-upload="childOnePhoto"><input type="file" id="child-one-upload" accept="image/*" aria-label="Загрузить первое детское фото"><span>＋</span><p><b>Первое фото</b><small>Жених или невеста</small></p></div><div class="upload-zone compact-upload" data-media-upload="childTwoPhoto"><input type="file" id="child-two-upload" accept="image/*" aria-label="Загрузить второе детское фото"><span>＋</span><p><b>Второе фото</b><small>Жених или невеста</small></p></div></div>
+            <input type="hidden" data-rich-field="childOnePhoto"><input type="hidden" data-rich-field="childTwoPhoto">
+            <label><span>Подпись</span><input data-rich-field="childhoodText" value="Узнали нас?"></label>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="19" data-preview-target="video"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 19 ИЗ 23</span><h2>Видео</h2><p>Добавьте love story, тизер или личное обращение к гостям.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="video"><i></i><span>Добавить раздел</span></label></div>
+            <label><span>Ссылка на видео</span><input type="url" data-rich-field="videoUrl" placeholder="YouTube, VK Видео, Rutube..."></label>
+            <label><span>Подпись</span><input data-rich-field="videoCaption" value="Нажмите, чтобы посмотреть нашу историю"></label>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="20" data-preview-target="faq"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 20 ИЗ 23</span><h2>Вопросы и ответы</h2><p>Добавляйте любые вопросы гостей и сразу отвечайте на них. Порядок в редакторе повторится в приглашении.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="faq"><i></i><span>Добавить раздел</span></label></div>
+            <div class="faq-toolbar"><div><b>Частые вопросы</b><small>Один вопрос — одна понятная карточка</small></div><button type="button" class="primary-button small" id="add-faq-item">＋ Добавить вопрос</button></div>
+            <input type="hidden" data-rich-field="faqOrder" value="1,2">
+            <div class="faq-editor-list" id="faq-editor-list"></div>
+            <div class="transfer-help"><span>i</span><p><b>Что увидит гость</b>Аккуратный список вопросов. Ответ раскрывается прямо в приглашении без перехода на другую страницу.</p></div>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="21" data-preview-target="contacts"><div class="form-card focused-card">
+            <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 21 ИЗ 23</span><h2>Контакты координатора</h2><p>Чтобы в день свадьбы гости обращались к ответственному человеку, а не к вам.</p></div><label class="feature-switch"><input type="checkbox" data-feature-toggle="contacts" checked><i></i><span>Добавить раздел</span></label></div>
+            <div class="contact-photo-editor"><div class="upload-zone compact-upload"><input type="file" id="contact-photo-upload" accept="image/jpeg,image/png,image/webp" aria-label="Загрузить фотографию координатора"><span>＋</span><p><b>Фотография координатора</b><small>Вертикальное фото или портрет · до 8 МБ</small></p></div><button type="button" class="text-button" id="remove-contact-photo" hidden>Удалить фотографию</button></div>
+            <input type="hidden" data-rich-field="contactPhoto">
+            <label><span>Имя координатора *</span><input data-rich-field="contactName" value="Анна" maxlength="50" autocomplete="name"></label>
+            <div class="messenger-fields">
+              <label><span>Telegram</span><input data-rich-field="contactTelegram" placeholder="@username или https://t.me/username" autocomplete="off" autocapitalize="off"><small>Можно вставить имя пользователя или ссылку.</small></label>
+              <label><span>WhatsApp</span><input data-rich-field="contactWhatsapp" placeholder="+7 999 123-45-67 или https://wa.me/…" autocomplete="off" inputmode="tel"><small>Можно указать номер или готовую ссылку.</small></label>
+              <label><span>MAX</span><input data-rich-field="contactMax" placeholder="Вставьте скопированную ссылку из MAX" autocomplete="off" autocapitalize="off"><small>Откройте профиль в MAX и скопируйте ссылку.</small></label>
+            </div>
+            <p class="field-hint">Заполните хотя бы один мессенджер. Телефон отдельно публиковать не нужно.</p>
+            <label><span>Пояснение</span><textarea rows="3" data-rich-field="contactText">В день торжества по всем организационным вопросам можно обратиться к нашему координатору.</textarea></label>
+          </div></div>
+
+          <div class="step-panel" data-step-panel="22" data-preview-target="rsvp">
+            <div class="form-card focused-card rsvp-editor">
+              <div class="form-card-head"><div><span class="wizard-kicker">ШАГ 22 ИЗ 23</span><h2>Настройте ответы гостей</h2><p>Соберите только организационные данные для подтверждения присутствия.</p></div><span class="auto-badge">Ответы попадут в кабинет</span></div>
+              <div class="rsvp-deadline-row"><label><span>Ответить до <small class="optional-inline">рекомендуется</small></span><input id="rsvp-deadline" type="date"><small>Срок увидят гости рядом с кнопкой подтверждения.</small></label><div class="rsvp-required"><span>✓</span><p><b>Присутствие</b><small>«Буду» или «Не смогу» — обязательный первый ответ</small></p></div></div>
+              <div class="rsvp-flow-note"><span>1 ССЫЛКА</span><p><b>Одно приглашение для всех гостей</b><small>Вы отправляете одну общую ссылку. Каждый человек самостоятельно представляется, подтверждает присутствие и указывает, с кем придёт.</small></p></div>
+
+              <section class="rsvp-config-card">
+                <div class="rsvp-config-head"><span>01</span><div><h3>Как проходит подтверждение</h3><p>Три коротких действия без регистрации</p></div></div>
+                <div class="common-rsvp-flow">
+                  <article><b>1</b><p><strong>Имя и мессенджер</strong><small>По контакту в Telegram, WhatsApp или MAX повторный ответ обновится без дубля.</small></p></article>
+                  <article><b>2</b><p><strong>«Буду» или «Не смогу»</strong><small>Если человек не придёт, анкета на этом заканчивается.</small></p></article>
+                  <article><b>3</b><p><strong>Состав компании</strong><small>Только пришедшие указывают взрослых, детей и остальные детали.</small></p></article>
+                </div>
+                <p class="common-rsvp-result"><span>✓</span><b>В кабинете автоматически появится группа:</b> например, «Алексей Петров + 2 гостя» со всеми ответами внутри.</p>
+              </section>
+
+              <section class="rsvp-config-card">
+                <div class="rsvp-config-head"><span>02</span><div><h3>Что заполняет пришедший гость</h3><p>Поля открываются только после ответа «Буду»</p></div></div>
+                <div class="question-list">
+                  <div class="question rsvp-fixed-question"><span>♙</span><p><b>Количество взрослых</b><small>Сам гость и люди, которые придут вместе с ним</small></p><em>обязательно</em><input type="checkbox" data-rsvp="count" checked hidden></div>
+                  <div class="rsvp-dependent" data-rsvp-depends="count"><label><span>Максимум человек в одном ответе</span><select data-rsvp-config="maxGuests"><option value="2">2 человека</option><option value="3">3 человека</option><option value="4" selected>4 человека</option><option value="5">5 человек</option><option value="6">6 человек</option><option value="8">8 человек</option></select><small>Ограничение защищает от случайного добавления лишних гостей.</small></label></div>
+                  <div class="question rsvp-fixed-question"><span>А</span><p><b>Имена остальных взрослых</b><small>Поле появится, только если выбрано больше одного человека</small></p><em>автоматически</em><input type="checkbox" data-rsvp="companions" checked hidden></div>
+                  <div class="question rsvp-fixed-question"><span>☆</span><p><b>Дети и их возраст</b><small id="rsvp-children-hint">Зависит от формата торжества на шаге 11</small></p><em>по формату</em><input type="checkbox" data-rsvp="children" checked hidden></div>
+                  <label class="question"><span>⇄</span><p><b>Нужен ли трансфер?</b><small>Показывается, только если раздел трансфера добавлен</small></p><input type="checkbox" data-rsvp="transfer" checked><i></i></label>
+                  <div class="question rsvp-fixed-question"><span>⌁</span><p><b>Выбор меню</b><small>Автоматически появится, если на шаге 14 добавлено меню</small></p><em>автоматически</em></div>
+                </div>
+              </section>
+
+              <div class="rsvp-custom-block"><div><h3>Свои вопросы</h3><p>Например, любимая песня или пожелание молодожёнам</p></div><button type="button" class="add-question" id="add-question">＋ Добавить вопрос</button></div>
+              <div class="custom-question-editor" id="custom-question-editor"><input id="custom-question-input" maxlength="100" placeholder="Например: какую песню поставить для вас?" aria-label="Свой вопрос для гостей"><button type="button" class="primary-button small" id="save-question">Добавить</button></div>
+              <div class="question-list custom-rsvp-list" id="custom-rsvp-list"></div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel="23" data-preview-target="review">
+            <div class="review-card">
+              <span class="review-icon" id="review-status-icon">✓</span><h2 id="review-status-title">Проверяем приглашение</h2><p id="review-status-copy">Сейчас покажем, что готово, а что нужно исправить перед оплатой.</p>
+              <div class="review-summary"><div><span>Шаблон</span><b id="review-template">Священный сад</b></div><div><span>Событие</span><b id="review-event">Роман и Полина · 14 сентября 2026</b></div><div><span id="payment-summary-label">Публикация</span><b id="payment-summary-value">Проверяем доступность…</b></div></div>
+              <div class="review-checklist-head"><div><span class="eyebrow">АВТОМАТИЧЕСКАЯ ПРОВЕРКА</span><h3>Готовность приглашения</h3></div><b id="review-check-count">0 из 0</b></div>
+              <div class="review-checklist" id="review-checklist"></div>
+              <button type="button" class="outline-button wide" id="review-preview">Посмотреть глазами гостя ↗</button>
+            </div>
+            <div class="payment-card"><div><span class="eyebrow" id="payment-card-kicker">ПРОВЕРКА ПУБЛИКАЦИИ</span><h2 id="payment-card-title">Сохраняем ваш черновик</h2><p id="payment-card-copy">Проверяем доступность безопасной оплаты и публикации.</p></div><button type="button" class="primary-button" id="pay-button" disabled>Проверяем доступность…</button></div>
+            <div class="purchase-assurance"><span id="payment-assurance">✓ Проверяем публикацию</span><span>✓ Ссылка сразу после оплаты</span><span>✓ Правки без ограничений</span><span>✓ Любое количество гостей</span></div>
+          </div>
+
+          <section class="mobile-live-preview" id="mobile-live-preview" aria-label="Живой предпросмотр приглашения">
+            <div class="mobile-live-preview-head">
+              <div><span class="eyebrow">ТАК УВИДЯТ ГОСТИ</span><b id="mobile-preview-context">Изменения уже применены</b></div>
+              <button type="button" id="mobile-preview-expand" aria-label="Открыть приглашение на весь экран">На весь экран</button>
+            </div>
+            <div class="mobile-live-preview-stage" id="mobile-live-preview-stage"></div>
+            <p class="mobile-live-preview-help"><i></i> Изменяемый раздел подсвечен. Листайте внутри приглашения, чтобы проверить соседние блоки.</p>
+          </section>
+        </div>
+
+        <footer class="editor-footer">
+          <button type="button" class="outline-button" id="previous-step">Назад</button>
+          <p><i></i><span>Черновик сохраняется автоматически</span></p>
+          <button type="button" class="mobile-preview-button" id="mobile-preview" aria-label="Открыть предпросмотр на весь экран"><span>Весь экран</span></button>
+          <button type="button" class="primary-button" id="next-step">Продолжить</button>
+        </footer>
+      </section>
+    </section>
+
+    <section class="screen dashboard-screen" data-screen-panel="projects">
+      <div class="dashboard-wrap">
+        <div class="dashboard-head"><div><span class="eyebrow">ЛИЧНЫЙ КАБИНЕТ</span><h1>Мои приглашения</h1><p>Продолжите черновик или начните новое приглашение.</p></div><div class="dashboard-actions"><button type="button" class="outline-button" id="dashboard-templates">Все шаблоны</button><button type="button" class="primary-button" id="new-project">＋ Создать приглашение</button></div></div>
+        <div class="projects-toolbar"><div class="project-tabs"><button type="button" class="is-active" data-project-filter="all">Все</button><button type="button" data-project-filter="draft">Черновики</button><button type="button" data-project-filter="published">Опубликованные</button></div><label class="project-search"><span>⌕</span><input id="project-search" placeholder="Найти приглашение"></label></div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <section class="screen dashboard-screen" data-screen-panel="guests">
+      <div class="dashboard-wrap">
+        <div class="dashboard-head guest-head"><div><span class="eyebrow">ГОСТИ И ОТВЕТЫ</span><h1>Картина по гостям</h1><p>Все подтверждения, состав компаний и организационные ответы — в одном месте.</p></div><div><select id="guest-project-select" aria-label="Приглашение"></select><button type="button" class="primary-button" id="add-guest">＋ Добавить вручную</button></div></div>
+        <div class="guest-unavailable" id="guest-unavailable"><span>♙</span><h2>Сначала опубликуйте приглашение</h2><p>После тестовой публикации здесь появится общая ссылка и начнут собираться ответы.</p><button type="button" class="primary-button" data-screen="editor" data-step-jump="5">Перейти к проверке</button></div>
+        <div class="guests-content" id="guests-content">
+          <section class="guest-command-bar"><div><span>ОДНА ССЫЛКА ДЛЯ ВСЕХ ГОСТЕЙ</span><code id="guest-public-link">Ссылка появится после публикации</code><small>Отправьте её всем — каждый гость сам представится и укажет состав своей компании.</small></div><button type="button" class="outline-button" id="copy-public-link">Скопировать ссылку</button><button type="button" class="outline-button" id="export-guests">Скачать CSV</button></section>
+          <div class="guest-stats"><article><span>Всего ответов</span><b id="guest-total">0</b><small>групп гостей</small></article><article class="positive"><span>Подтвердили</span><b id="guest-accepted">0</b><small>человек придут</small></article><article><span>Ожидаем</span><b id="guest-pending">0</b><small>ответов</small></article><article><span>Не смогут</span><b id="guest-declined">0</b><small>ответов</small></article><article><span>Дети</span><b id="guest-children">0</b><small>указано в анкетах</small></article><article><span>Нужен трансфер</span><b id="guest-transfer">0</b><small>групп</small></article><article><span>Выбрали подарок</span><b id="guest-gifts">0</b><small>броней</small></article></div>
+          <section class="guest-insights"><div class="guest-response-card"><div><span>ГОТОВНОСТЬ СПИСКА</span><b id="guest-response-rate">0%</b></div><div class="guest-rate-track"><i id="guest-response-bar"></i></div><p id="guest-response-copy">Ответов пока нет. Отправьте гостям общую ссылку.</p></div><div class="guest-next-actions"><b>Что проверить дальше</b><ul id="guest-action-list"><li>Отправить приглашение гостям</li><li>Проверить трансфер и меню</li><li>Напомнить тем, кто не ответил</li></ul></div></section>
+          <div class="guest-toolbar"><label><span>⌕</span><input id="guest-search" placeholder="Найти гостя"></label><select id="guest-filter" aria-label="Фильтр гостей по статусу"><option value="all">Все статусы</option><option value="accepted">Подтвердили</option><option value="pending">Ожидаем ответ</option><option value="declined">Не смогут</option></select><button type="button" class="outline-button" id="import-guests">Импортировать список</button></div>
+          <div class="guest-table-wrap"><table class="guest-table"><thead><tr><th>Гость или группа</th><th>Статус</th><th data-gift-heading>Подарок</th><th></th></tr></thead><tbody id="guest-table-body"></tbody></table><div class="guest-empty" id="guest-empty"><span>⌁</span><b>Ответов пока нет</b><small>Отправьте гостям общую ссылку — каждый ответ появится здесь автоматически</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen dashboard-screen" data-screen-panel="team" hidden aria-hidden="true">
+      <div class="dashboard-wrap team-wrap">
+        <div class="dashboard-head"><div><span class="eyebrow">СОВМЕСТНАЯ РАБОТА</span><h1>Доступ к приглашению</h1><p>Добавьте партнёра или организатора и заранее определите, что им разрешено.</p></div><select id="team-project-select" aria-label="Приглашение"></select></div>
+        <div class="team-layout">
+          <section class="team-card invite-team-card"><span class="eyebrow">ПРИГЛАСИТЬ ЧЕЛОВЕКА</span><h2>Работайте вместе без передачи пароля</h2><p>Роли и права уже можно настроить. Отправка приглашения на почту заработает после подключения сервера.</p><label><span>Email</span><input id="team-email" type="email" placeholder="partner@example.ru"></label><label><span>Роль</span><select id="team-role"><option value="partner">Партнёр — полный доступ</option><option value="planner">Организатор — редактор и гости</option><option value="viewer">Наблюдатель — только просмотр</option></select></label><div class="team-permissions" id="team-permissions"><label><input type="checkbox" data-team-permission="edit" checked><span><b>Редактировать приглашение</b><small>Тексты, фото и разделы</small></span></label><label><input type="checkbox" data-team-permission="guests" checked><span><b>Работать с гостями</b><small>Ответы, подарки и экспорт</small></span></label><label><input type="checkbox" data-team-permission="publish"><span><b>Публиковать изменения</b><small>Финальное подтверждение и оплата</small></span></label></div><button type="button" class="primary-button wide" id="invite-team-member">Добавить участника</button></section>
+          <section class="team-card"><div class="team-list-head"><div><span class="eyebrow">УЧАСТНИКИ</span><h2>Кто имеет доступ</h2></div><b id="team-member-count">1 человек</b></div><div class="team-members" id="team-members"></div><div class="team-owner-note"><span>✓</span><p><b>Вы — владелец проекта</b><small>Только владелец может удалить проект и управлять оплатой.</small></p></div></section>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen dashboard-screen" data-screen-panel="seating" hidden aria-hidden="true">
+      <div class="dashboard-wrap seating-wrap">
+        <div class="dashboard-head seating-head"><div><span class="eyebrow">ПЛАН РАССАДКИ</span><h1>Расставьте гостей по столам</h1><p>На телефоне выберите гостя и нажмите на стол. На компьютере гостя можно перетащить.</p></div><div><select id="seating-project-select" aria-label="Приглашение"></select><button type="button" class="primary-button" id="add-seating-table">＋ Добавить стол</button></div></div>
+        <section class="seating-summary"><article><span>Гостей в списке</span><b id="seating-total">0</b></article><article><span>Рассажено</span><b id="seating-assigned">0</b></article><article><span>Осталось</span><b id="seating-unassigned-count">0</b></article><div><span>ГОТОВНОСТЬ РАССАДКИ</span><div><i id="seating-progress"></i></div></div></section>
+        <div class="seating-layout">
+          <aside class="seating-guests-card"><div><span class="eyebrow">БЕЗ СТОЛА</span><h2>Гости для рассадки</h2><p id="seating-instruction">Нажмите на имя, затем на нужный стол.</p></div><div class="seating-selected" id="seating-selected">Гость не выбран</div><label class="seating-search"><span>⌕</span><input id="seating-guest-search" type="search" placeholder="Найти гостя" autocomplete="off" aria-label="Найти гостя для рассадки"></label><div class="seating-guest-pool" id="seating-guest-pool"></div><div class="seating-no-results" id="seating-no-results">По такому запросу гостей без стола нет</div><div class="seating-empty" id="seating-empty"><span>♙</span><b>Добавьте гостей или дождитесь ответов</b><small>В рассадку попадают все, кроме тех, кто отказался.</small></div></aside>
+          <section class="seating-plan-card"><div class="seating-plan-head"><div><span class="eyebrow">СХЕМА ЗАЛА</span><h2>Столы</h2></div><button type="button" class="outline-button" id="reset-seating">Очистить рассадку</button></div><div class="seating-canvas" id="seating-canvas"></div><p class="seating-help">Совет: сначала создайте нужное количество столов, затем распределяйте гостей. Все изменения сохраняются автоматически.</p></section>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen dashboard-screen" data-screen-panel="profile"><div class="dashboard-wrap"><div class="dashboard-head"><div><span class="eyebrow">АККАУНТ</span><h1>Профиль</h1><p>Контактные данные, безопасность и уведомления.</p></div></div><div class="profile-grid"><div class="profile-card"><div class="profile-person"><span id="profile-avatar">П</span><div><h2 id="profile-title">Ваш аккаунт</h2><p id="profile-caption">polina@example.ru</p></div></div><label><span>Ваше имя</span><input id="profile-name" placeholder="Как к вам обращаться" autocomplete="name"></label><label><span>Email для входа</span><input id="profile-email" value="polina@example.ru" type="email" readonly aria-describedby="profile-email-help"><small id="profile-email-help">Email подтверждён и используется для входа. Смена адреса будет доступна после повторного подтверждения.</small></label><div class="profile-password-fields"><h3>Сменить пароль</h3><label><span>Текущий пароль</span><input id="profile-current-password" type="password" autocomplete="current-password"></label><label><span>Новый пароль</span><input id="profile-password" placeholder="Минимум 8 символов" type="password" autocomplete="new-password"></label><label><span>Повторите новый пароль</span><input id="profile-password-confirm" type="password" autocomplete="new-password"></label></div><button type="button" class="primary-button" id="save-profile">Сохранить изменения</button></div><div class="profile-card"><h2>Уведомления</h2><label class="setting-row"><p><b>Ответы гостей</b><small>Новые подтверждения присутствия</small></p><input id="notify-guests" type="checkbox" checked><i></i></label><label class="setting-row"><p><b>Незавершённый черновик</b><small>Напоминать вернуться к приглашению</small></p><input id="notify-drafts" type="checkbox" checked><i></i></label><label class="setting-row"><p><b>Новости платформы</b><small>Редкие обновления и полезные материалы</small></p><input id="notify-news" type="checkbox"><i></i></label><div class="profile-data-actions"><button type="button" id="export-local-data">↓ Скачать мои данные</button><button type="button" class="danger-text" id="reset-local-data">Очистить данные на этом устройстве</button></div><button type="button" class="logout-button" id="logout">Выйти из аккаунта</button></div></div></div></section>
+  </main>
+</div>
+
+<div class="mobile-bottom"><button type="button" data-screen="projects"><span>◇</span>Проекты</button><button type="button" class="is-active" data-screen="editor"><span>✎</span>Редактор</button><button type="button" data-screen="guests"><span>♙</span>Гости</button></div>
+<div class="preview-modal" id="preview-modal" aria-hidden="true" aria-labelledby="preview-modal-title"><div class="preview-modal-head"><div><b id="preview-modal-title">Предпросмотр для гостя</b><small>Листайте приглашение так же, как гость</small></div><button type="button" id="close-preview" aria-label="Закрыть">×</button></div><div class="modal-phone-slot" id="modal-phone-slot"></div></div>
+
+<div class="template-modal" id="template-modal" aria-hidden="true">
+  <div class="template-dialog">
+    <div class="dialog-head">
+      <div><span class="eyebrow">АВТОРСКАЯ КОЛЛЕКЦИЯ</span><h2 id="template-modal-title">Все шаблоны</h2><p id="template-help">Сначала посмотрите приглашение целиком или сразу выберите подходящий дизайн.</p></div>
+      <button type="button" id="close-templates" aria-label="Закрыть">×</button>
+    </div>
+    <p class="template-swipe-hint"><span aria-hidden="true">↔</span><b>Листайте влево</b><small>6 разных дизайнов</small></p>
+    <div class="template-grid">
+      <article class="template-card selected" data-template="sacred">
+        <div class="template-cover sacred"><i>Р · П</i><span>Роман</span><small>и</small><span>Полина</span><em>ботаническая каллиграфия</em></div>
+        <b>Священный сад</b><span>Изумруд · состаренное золото</span><small>Ботаника и арочные линии</small>
+        <div class="template-card-actions"><button type="button" data-template-preview="sacred">Посмотреть</button><button type="button" data-template-select="sacred">Выбрать</button></div>
+      </article>
+      <article class="template-card" data-template="velvet">
+        <div class="template-cover velvet"><i>◇</i><span>Роман</span><small>&amp;</small><span>Полина</span><em>after dark · 14.09</em></div>
+        <b>Бархатный вечер</b><span>Oxblood · шампань</span><small>Кинематографичный art deco</small>
+        <div class="template-card-actions"><button type="button" data-template-preview="velvet">Посмотреть</button><button type="button" data-template-select="velvet">Выбрать</button></div>
+      </article>
+      <article class="template-card" data-template="silk">
+        <div class="template-cover silk"><i>○</i><span>Роман</span><small>и</small><span>Полина</span><em>silk edition</em></div>
+        <b>Воздушный шёлк</b><span>Жемчуг · пудра</span><small>Свет, воздух и мягкая драпировка</small>
+        <div class="template-card-actions"><button type="button" data-template-preview="silk">Посмотреть</button><button type="button" data-template-select="silk">Выбрать</button></div>
+      </article>
+      <article class="template-card" data-template="moon">
+        <div class="template-cover moon"><i>☾</i><span>Роман</span><small>под звёздами</small><span>Полина</span><em>14 · IX · 2026</em></div>
+        <b>Лунный сад</b><span>Полночь · лунное серебро</span><small>Созвездия и ночная церемония</small>
+        <div class="template-card-actions"><button type="button" data-template-preview="moon">Посмотреть</button><button type="button" data-template-select="moon">Выбрать</button></div>
+      </article>
+      <article class="template-card" data-template="estate">
+        <div class="template-cover estate"><i>❦</i><span>Роман</span><small>и</small><span>Полина</span><em>усадьба · сентябрь</em></div>
+        <b>Русская усадьба</b><span>Шалфей · сливки</span><small>Гербарий и семейная классика</small>
+        <div class="template-card-actions"><button type="button" data-template-preview="estate">Посмотреть</button><button type="button" data-template-select="estate">Выбрать</button></div>
+      </article>
+      <article class="template-card" data-template="editorial">
+        <div class="template-cover editorial"><i>№ 06</i><span>Роман</span><small>+</small><span>Полина</span><em>MOSCOW / 14.09.26</em></div>
+        <b>Современная клятва</b><span>Молочный · графит</span><small>Fashion editorial и крупная типографика</small>
+        <div class="template-card-actions"><button type="button" data-template-preview="editorial">Посмотреть</button><button type="button" data-template-select="editorial">Выбрать</button></div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<div class="template-preview-modal" id="template-preview-modal" aria-hidden="true">
+  <header class="template-preview-head">
+    <button type="button" id="template-preview-back">Все приглашения</button>
+    <div><span>ПОЛНЫЙ ПРЕДПРОСМОТР</span><b id="template-preview-title">Священный сад</b><small>Листайте приглашение от первого экрана до ответа гостя</small></div>
+    <button type="button" id="close-template-preview" aria-label="Закрыть">×</button>
+  </header>
+  <div class="template-preview-stage">
+    <div class="template-preview-device">
+      <i aria-hidden="true"></i>
+      <div class="template-preview-loading" id="template-preview-loading" role="status"><span aria-hidden="true"></span><b>Загружаем приглашение</b></div>
+      <iframe id="template-preview-frame" title="Полный предпросмотр приглашения" loading="eager"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="action-modal" id="project-action-modal" aria-hidden="true"><div class="small-dialog"><div class="dialog-head"><div><span class="eyebrow">ПРИГЛАШЕНИЕ</span><h2 id="action-project-title">Управление проектом</h2></div><button type="button" data-close-modal>×</button></div><button type="button" id="rename-project">✎ Переименовать</button><button type="button" id="duplicate-project">◇ Создать копию</button><button type="button" id="delete-project" class="danger-action">× Удалить проект</button></div></div>
+<div class="action-modal" id="guest-modal" aria-hidden="true"><div class="small-dialog"><div class="dialog-head"><div><span class="eyebrow">НОВЫЙ ГОСТЬ</span><h2>Добавить гостя</h2><p>Добавьте человека в список вручную. Отправлять ему отдельную ссылку не нужно.</p></div><button type="button" data-close-modal>×</button></div><label><span>Имя или семья *</span><input id="guest-name" placeholder="Например: Алексей и Мария"></label><label><span>Телефон или email</span><input id="guest-contact" placeholder="Для вашего удобства"></label><label><span>Количество мест</span><select id="guest-seats"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></label><button type="button" class="primary-button wide" id="save-guest">Добавить в список</button></div></div>
+<div class="action-modal" id="import-modal" aria-hidden="true"><div class="small-dialog"><div class="dialog-head"><div><span class="eyebrow">БЫСТРОЕ ДОБАВЛЕНИЕ</span><h2>Импортировать гостей</h2><p>Каждое имя — с новой строки</p></div><button type="button" data-close-modal>×</button></div><textarea id="guest-import-list" rows="8" placeholder="Анна Петрова\nСемья Ивановых\nАлексей и Мария" aria-label="Список гостей, по одному имени на строку"></textarea><button type="button" class="primary-button wide" id="save-import">Добавить гостей</button></div></div>
+<div class="action-modal" id="publish-modal" aria-hidden="true"><div class="small-dialog publish-dialog"><div class="dialog-head"><div><span class="eyebrow">ПУБЛИКАЦИЯ</span><h2>Приглашение готово к отправке</h2></div><button type="button" data-close-modal>×</button></div><p>После публикации появится настоящая общая ссылка. Гости смогут открыть приглашение, подтвердить присутствие и забронировать подарок.</p><div class="publish-price"><span id="publish-price-label">Публикация</span><b id="publish-price-value">Проверяем доступность…</b></div><p class="publish-beta-note" id="publish-payment-note">Проверяем доступность безопасной оплаты и публикации.</p><fieldset class="publish-consents"><legend>Что будет доступно получателям ссылки</legend><label data-publish-category-row="names"><input type="checkbox" data-publish-consent="names"><span><b>Имена пары</b><small>Обязательная часть приглашения</small></span></label><label data-publish-category-row="eventDetails"><input type="checkbox" data-publish-consent="eventDetails"><span><b>Дата, место и программа события</b><small>Обязательная часть приглашения</small></span></label><label data-publish-category-row="pairPhotos"><input type="checkbox" data-publish-consent="pairPhotos"><span><b>Фотографии пары и площадки</b><small>Показывается, потому что фотографии добавлены</small></span></label><label data-publish-category-row="childhoodPhotos"><input type="checkbox" data-publish-consent="childhoodPhotos"><span><b>Детские фотографии</b><small>Подтвердите разрешение законного представителя</small></span></label><label data-publish-category-row="video"><input type="checkbox" data-publish-consent="video"><span><b>Добавленное видео</b><small>Проверьте право на публикацию</small></span></label><label data-publish-category-row="contacts"><input type="checkbox" data-publish-consent="contacts"><span><b>Контакты организатора</b><small>Имя, фото и мессенджер, если они добавлены</small></span></label><p>Устанавливая флажки, вы подтверждаете законное основание для публикации этих данных. <a href="/distribution-consent.html" target="_blank" rel="noopener">Подробнее о согласии</a>.</p></fieldset><p class="publish-consent-error" id="publish-consent-error" role="alert"></p><button type="button" class="primary-button wide" id="demo-publish" disabled>Проверяем доступность…</button></div></div>
+
+<div class="action-modal" id="rsvp-guest-modal" aria-hidden="true"><div class="small-dialog rsvp-guest-dialog"><div class="dialog-head"><div><span class="eyebrow">ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ</span><h2>Расскажите о своих планах</h2><p>Так общая анкета будет выглядеть для каждого гостя.</p></div><button type="button" data-close-modal>×</button></div><div class="rsvp-identity"><label><span>Ваше имя и фамилия *</span><input id="demo-rsvp-name" autocomplete="name" placeholder="Например: Алексей Петров"></label><label><span>Удобный мессенджер *</span><select id="demo-rsvp-messenger"><option value="telegram">Telegram</option><option value="whatsapp">WhatsApp</option><option value="max">MAX</option></select></label><label class="rsvp-messenger-contact"><span id="demo-rsvp-contact-label">Контакт в Telegram *</span><input id="demo-rsvp-contact" autocomplete="off" autocapitalize="off" placeholder="@username или ссылка t.me/…"><small>Контакт нужен только организаторам; звонить никто не будет.</small></label></div><div class="guest-attendance"><label><input type="radio" name="demo-attendance" value="accepted" checked><span>С радостью буду</span></label><label><input type="radio" name="demo-attendance" value="declined"><span>К сожалению, не смогу</span></label></div><div id="rsvp-guest-fields"></div><button type="button" class="primary-button wide" id="rsvp-demo-submit">Отправить ответ</button></div></div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="/webgency-invitations-preview/site-20261006-c0034d284a34/cookie-consent.js?v=20260829-3" defer></script></body>
+</html>
