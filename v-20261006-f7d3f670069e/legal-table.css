@@ -1,0 +1,19 @@
+.legal-table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.legal-table{width:100%;min-width:680px;border-collapse:collapse}
+.legal-table th,.legal-table td{padding:16px 18px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.legal-table th{color:var(--ink);font-size:14px}
+.legal-table tr:last-child td{border-bottom:0}
+.legal code{padding:3px 6px;border-radius:6px;background:#edf2ef;color:var(--ink);font-size:.9em;overflow-wrap:anywhere}
+@media(max-width:640px){
+  .legal-table-wrap{overflow:hidden}
+  .legal-table{display:block;min-width:0}
+  .legal-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+  .legal-table tbody,.legal-table tr,.legal-table td{display:block;width:100%}
+  .legal-table tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .legal-table tr:last-child{border-bottom:0}
+  .legal-table td{padding:5px 14px;border:0;overflow-wrap:anywhere}
+  .legal-table td::before{display:block;margin-bottom:2px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .legal-table td:nth-child(1)::before{content:'Запись'}
+  .legal-table td:nth-child(2)::before{content:'Назначение'}
+  .legal-table td:nth-child(3)::before{content:'Срок'}
+}

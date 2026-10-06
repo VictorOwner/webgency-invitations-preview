@@ -1,0 +1,7 @@
+{
+  "version": "v-20261006-f7d3f670069e",
+  "source_worktree": "candidate/night-integrated",
+  "source_base_commit": "ff44411",
+  "renderer_sha256": "f7d3f670069ea81d2f91d3402aa9c9e70cb42dff3fad6627359dd45351e98c3c",
+  "scope": "Synthetic static guest preview; no editor/backend/persistence; not production."
+}
