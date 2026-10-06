@@ -13,4 +13,12 @@
   return originalFetch(input,init);
  };
  document.addEventListener('submit',e=>{if(e.target.closest('form')){e.preventDefault();e.stopImmediatePropagation();alert('Демо: отправка данных отключена.')}},true);
+ document.addEventListener('DOMContentLoaded',()=>{
+  const notice=document.createElement('aside');
+  notice.setAttribute('role','note');
+  notice.id='preview-only-notice';
+  notice.textContent='ТЕСТОВЫЙ ПРОСМОТР · Данные не сохраняются; письма, публикация, оплата и RSVP отключены.';
+  notice.style.cssText='position:sticky;top:0;z-index:2147483647;box-sizing:border-box;width:100%;padding:7px 12px;background:#33241e;color:#fff;font:600 12px/1.4 system-ui,sans-serif;text-align:center;';
+  document.body.prepend(notice);
+ });
 })();
